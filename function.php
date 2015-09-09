@@ -83,6 +83,12 @@ function displayList()
 			$folder = array('myLocal/screen', $value."/img", $value);
 			$name = array($value, "screen", "screenshot", "logo", "maquette");
 			$ext = array("png", "jpg", "svg", "gif");
+			$baseUrl = "";
+			$identifier = "";
+			$link = "";
+			$linkType = "";
+			$xmlfile = $value."/.git/sourcetreeconfig";
+			$confFile = $value."/.git/config";
 			foreach ($folder as $k1 => $fileFold) 
 			{
 				foreach ($name as $k2 => $fileName)
@@ -96,10 +102,9 @@ function displayList()
 					}
 				}
 			}
-			if (file_exists($value."/.git/sourcetreeconfig")) {
-				$xmlfile = $value."/.git/sourcetreeconfig";
-				$baseUrl = "";
-				$identifier = "";
+			
+			if (file_exists($xmlfile)) {
+				
 				$xmlparser = xml_parser_create();
 				$fp = fopen($xmlfile, 'r');
 				$xmldata = fread($fp, 4096);
@@ -117,11 +122,54 @@ function displayList()
 					}
 				}
 			}
+			elseif(file_exists($confFile))
+			{
+				$fp = fopen($confFile, 'r');
+				$data = fread($fp, 4096);
+				$conffGitSplit = array();
+				$data = str_replace(array(' ','&lt;br/&gt;','&quot;', '	', '\nl', '\r', '\rn', '\r\n', '\n\r','"', ']','['), '', $data);
+				$data = nl2br($data);
+				$data = split('\nl', $data);
+				$conff = "";
+				foreach ($data as $key => $val) {
+					$conff .= $val;
+				}
+				$conffGit = split('<br />', $conff);
+				foreach ($conffGit as $key => $v)
+				{
+					$v = split('=',$v);
+				
+					if ( !empty($v[0]) && !empty($v[1]) )
+					{
+						$v[0] = preg_replace("/[^A-Za-z0-9 ]/", '',$v[0]);
+						$conffGitSplit[$v[0]] = $v[1];
+					}
+				}
+				if (!empty($conffGitSplit["url"]))
+				{
+					$link = $conffGitSplit["url"];
+					if ( isset( split( "github", $link )[1] ) )
+					{
+						$linkType = "github";
+					}
+					elseif ( isset( split( "bitbucket", $link )[1] ) ) {
+						$linkType = "bitbucket";
+					}
+					else
+					{
+						$linkType = "git";
+					}
+				}
+			}
 			echo "<li class='site'>";
 				echo "<div class='site-content' style='background-image:url(".$img.")''>";
 					if ( !empty($baseUrl) && !empty($identifier) )
 					{
-						echo "<a class='bitbucket-link' target='_blank' href='".$baseUrl."/".$identifier."' title='".$value." bitbucket'><img src='./myLocal/img/bitbucket_logo.png' alt='logo bitbucket'/></a>";
+						echo "<a class='git-link' target='_blank' href='".$baseUrl."/".$identifier."' title='".$value." bitbucket'><img src='./myLocal/img/bitbucket_logo.png' alt='logo bitbucket'/></a>";
+					}
+					elseif( !empty($link) && !empty($linkType) )
+					{
+						echo "<a class='git-link' target='_blank' href='".$link."' title='".$value." ".$linkType."'><img src='./myLocal/img/".$linkType."_logo.png' alt='logo ".$linkType."'/></a>";
 					}
 					echo "<a class='local-link' href='".$value."' title='".$value." local'>".$value."</a>";
 				echo "</div>";

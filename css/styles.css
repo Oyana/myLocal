@@ -89,7 +89,7 @@ a{
 	text-shadow: 1px 1px rgba(0,255,0,0.1);
 	background-color: rgba(255,255,255,0.6);
 }
-.site-content .bitbucket-link{
+.site-content .git-link{
 	position: relative;
 	display: block;
 	float: none;
@@ -111,13 +111,13 @@ a{
 	-o-transition: margin-top 0.5s, background-color 0.5s;
 	transition: margin-top 0.5s, background-color 0.5s;
 }
-.bitbucket-link:hover{
+.git-link:hover{
 	background-color: rgba(255,255,255,0.6);
 }
-.site-content:hover .bitbucket-link, .site-content:focus .bitbucket-link{
+.site-content:hover .git-link, .site-content:focus .git-link{
 	margin-top: -70%;
 }
-.site-content .bitbucket-link img{
+.site-content .git-link img{
 	position: absolute;
 	display: block;
 	width: 24px;
@@ -132,7 +132,7 @@ a{
 	-o-transition: background-color 0.5s, -o-border-radius 0.5s;
 	transition: background-color 0.5s, border-radius 0.5s;
 }
-.site-content .bitbucket-link:hover img{
+.site-content .git-link:hover img{
 	background-color: white;
 
 	-webkit-border-radius: 50%;
