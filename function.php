@@ -68,14 +68,15 @@ function displayList()
 {
 	echo '<ul class="site-l">';
 	$files = scandir("./");
-
+	$realpath = str_replace(array('/', '\\'),'',split( ":",realpath('..') )[1]);
+	echo $realpath;
 	foreach ($files as $key => $value) 
 	{
 		if (
 				isset($value)
-			&&	$value !=".."
 			&&	$value !="."
-			&&	$value !="index.php"
+			&&	$value !=".."
+			&&	!is_file($value)
 			&&	$value !="myLocal"
 			)
 		{
