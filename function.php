@@ -10,10 +10,12 @@ function displayHead()
 		<link rel="stylesheet" type="text/css" href="./myLocal/css/jquery.mmenu.all.css">
 		<link rel="stylesheet" type="text/css" href="./myLocal/css/styles.css">
 		<link rel="stylesheet" type="text/css" href="./myLocal/css/media.css">
+		<link rel="icon" type="image/x-icon" href="./myLocal/img/favicon.ico" />
 	</head>
 	<body>
 		<div id="main">
 EOF;
+echo '<input type="hidden" id="myLocalSha" value="'.getComitKey("myLocal").'" />';
 }
 
 function displayHeader()
@@ -43,6 +45,7 @@ echo <<<EOF
 		<li><a href="../phpmyadmin/">PhpMyAdmin</a></li>
 		<li><a href="../webalizer/">webAlizer</a></li>
 		<li><a href="../xampp/mailform.php/">mailForm</a></li>
+		<li><a href="./#conff">conffig myLocal</a></li>
 	</ul>
 	</nav>
 EOF;
@@ -57,6 +60,8 @@ function displayFooter()
 function displayFoot()
 {
 echo <<<EOF
+	<div id="conffZone">	
+	</div>
 	</body>
 	<script src="./myLocal/js/jquery_2_1_4.js" type="text/javascript" charset="utf-8"></script>
 	<script src="./myLocal/js/jquery.mmenu.min.all.js" type="text/javascript" charset="utf-8"></script>
@@ -64,12 +69,28 @@ echo <<<EOF
 </html>
 EOF;
 }
+
+function getComitKey($checkFolder)
+{
+	// TODO FETCH HEAD PARSING
+	$confFile = $checkFolder."/.git/FETCH_HEAD";
+	if (file_exists($confFile))
+	{
+		$fp = fopen($confFile, 'r');
+		$data = fread($fp, 4096);
+		$key = split("	",$data)[0];
+		return $key;
+	}
+	else
+	{
+		return 0;
+	}
+}
 function displayList()
 {
 	echo '<ul class="site-l">';
 	$files = scandir("./");
-	$realpath = str_replace(array('/', '\\'),'',split( ":",realpath('..') )[1]);
-	echo $realpath;
+	$realpath = str_replace(array('/', '\\'),'',split( ":",realpath('.') )[1]);
 	foreach ($files as $key => $value) 
 	{
 		if (
@@ -78,6 +99,18 @@ function displayList()
 			&&	$value !=".."
 			&&	!is_file($value)
 			&&	$value !="myLocal"
+			&&	$value !="xampp"
+			&&	$value !="wampp"
+			&&	$value !="lampp"
+			&&	$value !="mampp"
+			&&	$value !="img"
+			&&	$value !="js"
+			&&	$value !="image"
+			&&	( $realpath !='xampphtdocs' || $value != 'dashboard' )
+			&&	( $realpath !='xampphtdocs' || $value != 'forbidden' )
+			&&	( $realpath !='xampphtdocs' || $value != 'forbidden' )
+			&&	( $realpath !='xampphtdocs' || $value != 'restricted' )
+			&&	( $realpath !='xampphtdocs' || $value != 'xampp' )
 			)
 		{
 			$img = "";
@@ -163,20 +196,33 @@ function displayList()
 				}
 			}
 			echo "<li class='site'>";
-				echo "<div class='site-content' style='background-image:url(".$img.")''>";
-					if ( !empty($baseUrl) && !empty($identifier) )
-					{
-						echo "<a class='git-link' target='_blank' href='".$baseUrl."/".$identifier."' title='".$value." bitbucket'><img src='./myLocal/img/bitbucket_logo.png' alt='logo bitbucket'/></a>";
-					}
-					elseif( !empty($link) && !empty($linkType) )
-					{
-						echo "<a class='git-link' target='_blank' href='".$link."' title='".$value." ".$linkType."'><img src='./myLocal/img/".$linkType."_logo.png' alt='logo ".$linkType."'/></a>";
-					}
-					echo "<a class='local-link' href='".$value."' title='".$value." local'>".$value."</a>";
+				echo "<input class='comitKey' type='hidden' value='" . getComitKey($value) . "' />";
+				echo "<div class='site-content' >";
+					echo "<div class='rotation-axe axe'>";
+						echo "<div class='radius-axe axe'>";
+							echo "<div class='bck-axe axe' style='background-image:url(".$img.")'>";
+								if ( !empty($baseUrl) && !empty($identifier) )
+								{
+									echo "<a class='git-link' target='_blank' href='".$baseUrl."/".$identifier."' title='".$value." bitbucket'><img src='./myLocal/img/bitbucket_logo.png' alt='logo bitbucket'/></a>";
+								}
+								elseif( !empty($link) && !empty($linkType) )
+								{
+									echo "<a class='git-link' target='_blank' href='".$link."' title='".$value." ".$linkType."'><img src='./myLocal/img/".$linkType."_logo.png' alt='logo ".$linkType."'/></a>";
+								}
+								echo "<a class='local-link' href='".$value."' title='".$value." local'>".$value."</a>";
+							echo "</div>";
+						echo "</div>";
+					echo "</div>";
 				echo "</div>";
 			echo "</li>";
 		}
 	}
 	echo '</ul>';
+}
+
+function displayConfForm(){
+	echo <<<EOF
+	<h1> Conff Your Local </h1>
+EOF;
 }
 ?>

@@ -12,7 +12,55 @@ $(function(){
 			"line-height": lineHeight
 		});
 	});
-	$(function() {
-		$('nav#menu').mmenu();
+	
+	var mmenu = $('nav#menu').mmenu();
+
+	function closeMM()
+	{
+		$(".mm-opened").each(function(index, el)
+		{
+			$(this).removeClass('mm-opened');
+		});
+		$(".mm-opening").each(function(index, el)
+		{
+			$(this).removeClass('mm-opening');
+		});
+		$(".mm-background").each(function(index, el)
+		{
+			$(this).removeClass('mm-background');
+		});
+		$(".mm-current").each(function(index, el)
+		{
+			$(this).removeClass('mm-current');
+		});
+		$(".mm-opened").each(function(index, el)
+		{
+			$(this).removeClass('mm-opened');
+		});
+		$(".mm-slideOut").each(function(index, el)
+		{
+			$(this).removeClass('mm-slideOut');
+		});
+	}
+
+	$(window).on('hashchange', function(e){
+		closeMM();
+		$("#conffZone").slideToggle(500);
+		$('html, body').animate({
+			scrollTop: $(document).height()
+		}, 1500);
+		$.ajax({
+			method: "POST",
+			data: { "method": "getConfForm" },
+			dataType: "html",
+			url: 	"./myLocal/index.php"
+			}).done(function( data ) {
+				$("#conffZone").append( data );
+		});
+	});
+	$.ajax({
+		url: 	"https://api.github.com/repos/Golgarud/myLocal/commits"}).done(function( data ) {
+		// alert(data[0]["sha"]);
+		$("html").append(  );
 	});
 });
