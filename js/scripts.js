@@ -1,6 +1,7 @@
 $(function(){
 	var site_w = $(".site").css("width");
 	var lineHeight = site_w.split("px");
+	var url = window.location.href; 
 	lineHeight = lineHeight[0]*0.5+"px";
 	$('.site').each(function(index, el) {
 		$(this).css({
@@ -14,6 +15,27 @@ $(function(){
 	});
 	
 	var mmenu = $('nav#menu').mmenu();
+
+	function displayConff()
+	{
+		$('html, body').animate({
+			scrollTop: $(document).height()
+		}, 1500);
+		$.ajax({
+			method: "POST",
+			data: { "method": "getConfForm" },
+			dataType: "html",
+			url: 	"./myLocal/index.php"
+			}).done(function( data ) {
+				$("#conffZone").append( data );
+				$("#conffZone").slideToggle(500);
+		});
+	}
+
+	function cleanTag()
+	{
+		window.history.pushState("","", url.split("#")[0]);
+	}
 
 	function closeMM()
 	{
@@ -43,23 +65,29 @@ $(function(){
 		});
 	}
 
+	if ( url.split("#")[1] == "conff" )
+	{
+		$(window).trigger('hashchange');
+		console.log(url.split("#"));
+		displayConff();
+	}
+
 	$(window).on('hashchange', function(e){
-		closeMM();
-		$("#conffZone").slideToggle(500);
-		$('html, body').animate({
-			scrollTop: $(document).height()
-		}, 1500);
-		$.ajax({
-			method: "POST",
-			data: { "method": "getConfForm" },
-			dataType: "html",
-			url: 	"./myLocal/index.php"
-			}).done(function( data ) {
-				$("#conffZone").append( data );
-		});
+		url = window.location.href; 
+		if ( url.split("#")[1] == "conff" )
+		{
+			closeMM();
+			displayConff();
+		}
+		else if( url.split("#")[1] == "closeConff" )
+		{
+			$("#conffZone").slideToggle(500);
+		}
 	});
 	$.ajax({
-		url: 	"https://api.github.com/repos/Golgarud/myLocal/commits"}).done(function( data ) {
+		url: "https://api.github.com/repos/Golgarud/myLocal/commits"
+	}).done(function( data ) 
+	{
 		// alert(data[0]["sha"]);
 		$("html").append(  );
 	});

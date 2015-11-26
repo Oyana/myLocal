@@ -123,6 +123,7 @@ function displayList()
 			$linkType = "";
 			$xmlfile = $value."/.git/sourcetreeconfig";
 			$confFile = $value."/.git/config";
+
 			foreach ($folder as $k1 => $fileFold) 
 			{
 				foreach ($name as $k2 => $fileName)
@@ -138,7 +139,6 @@ function displayList()
 			}
 			
 			if (file_exists($xmlfile)) {
-				
 				$xmlparser = xml_parser_create();
 				$fp = fopen($xmlfile, 'r');
 				$xmldata = fread($fp, 4096);
@@ -152,11 +152,12 @@ function displayList()
 					}
 					elseif($conff["tag"] == "IDENTIFIER")
 					{
-						$identifier = $conff["value"];
+						$identifier = $conff["value"];//empty identifier if clone by url
 					}
 				}
 			}
-			elseif(file_exists($confFile))
+			// could cause error login if clone by url
+			if(file_exists($confFile) && empty($identifier) )
 			{
 				$fp = fopen($confFile, 'r');
 				$data = fread($fp, 4096);
@@ -223,6 +224,7 @@ function displayList()
 function displayConfForm(){
 	echo <<<EOF
 	<h1> Conff Your Local </h1>
+	<a href="#closeConff" class="btn-close btn" >x</a>
 EOF;
 }
 ?>
