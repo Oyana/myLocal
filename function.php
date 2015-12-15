@@ -130,7 +130,11 @@ function displayList()
 				{
 					foreach ($ext as $k3 => $fileExt)
 					{
-						if (file_exists($fileFold.'/'.$fileName.'.'.$fileExt)) {
+						if (file_exists('myLocal/screen/'.$value.'.'.$fileExt)) {
+							$img = 'myLocal/screen/'.$value.'.'.$fileExt;
+							break;
+						}
+						elseif (file_exists($fileFold.'/'.$fileName.'.'.$fileExt)) {
 							$img = $fileFold.'/'.$fileName.'.'.$fileExt;
 							break;
 						}
