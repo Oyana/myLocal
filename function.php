@@ -103,6 +103,7 @@ function displayList()
 			&&	$value !="wampp"
 			&&	$value !="lampp"
 			&&	$value !="mampp"
+			&&	$value !="webalizer"
 			&&	$value !="img"
 			&&	$value !="js"
 			&&	$value !="image"
