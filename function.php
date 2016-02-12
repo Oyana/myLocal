@@ -107,6 +107,7 @@ function displayList()
 			&&	$value !="img"
 			&&	$value !="js"
 			&&	$value !="image"
+			&&	$value !="cache"
 			&&	( $realpath !='xampphtdocs' || $value != 'dashboard' )
 			&&	( $realpath !='xampphtdocs' || $value != 'forbidden' )
 			&&	( $realpath !='xampphtdocs' || $value != 'forbidden' )
