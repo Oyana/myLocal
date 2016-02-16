@@ -1,20 +1,10 @@
 $(function(){
-	var site_w = $(".site").css("width");
-	var lineHeight = site_w.split("px");
+	var resizeTimer;
+	var site_w;
+	var lineHeight;
 	var url = window.location.href; 
-	lineHeight = lineHeight[0]*0.5+"px";
-	$('.site').each(function(index, el) {
-		$(this).css({
-			"height": site_w
-		});
-	});
-	$('.site-content .local-link').each(function(index, el) {
-		$(this).css({
-			"line-height": lineHeight
-		});
-	});
-	
 	var mmenu = $('nav#menu').mmenu();
+	var refreshW = 2000; // reload .site width 2s after window's reload
 
 	function displayConff()
 	{
@@ -65,13 +55,31 @@ $(function(){
 		});
 	}
 
+	function updateWSize()
+	{
+		site_w = $(".site").css("width");
+		lineHeight = site_w.split("px");
+		lineHeight = lineHeight[0]*0.5+"px";
+
+		$('.site').each(function(index, el) {
+			$(this).css({
+				"height": site_w
+			});
+		});
+		$('.site-content .local-link').each(function(index, el) {
+			$(this).css({
+				"line-height": lineHeight
+			});
+		});
+	}
+
 	if ( url.split("#")[1] == "conff" )
 	{
 		$(window).trigger('hashchange');
 		console.log(url.split("#"));
 		displayConff();
 	}
-
+	// on hashchange or trigger hashchange
 	$(window).on('hashchange', function(e){
 		url = window.location.href; 
 		if ( url.split("#")[1] == "conff" )
@@ -84,6 +92,14 @@ $(function(){
 			$("#conffZone").slideToggle(500);
 		}
 	});
+	// on reload done
+	$(window).on('resize', function(e) {
+		clearTimeout(resizeTimer);
+		resizeTimer = setTimeout( updateWSize(), refreshW);
+	});
+
+	// on site load
+	updateWSize();
 	$.ajax({
 		url: "https://api.github.com/repos/Golgarud/myLocal/commits"
 	}).done(function( data ) 
