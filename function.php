@@ -10,7 +10,15 @@ function displayHead()
 		<link rel="stylesheet" type="text/css" href="./myLocal/css/jquery.mmenu.all.css">
 		<link rel="stylesheet" type="text/css" href="./myLocal/css/styles.css">
 		<link rel="stylesheet" type="text/css" href="./myLocal/css/media.css">
-		<link rel="icon" type="image/x-icon" href="./myLocal/img/favicon.ico" />
+		<link rel="apple-touch-icon" sizes="57x57" href="./myLocal/img/favicon/apple-touch-icon-57x57.png">
+		<link rel="apple-touch-icon" sizes="60x60" href="./myLocal/img/favicon/apple-touch-icon-60x60.png">
+		<link rel="apple-touch-icon" sizes="72x72" href="./myLocal/img/favicon/apple-touch-icon-72x72.png">
+		<link rel="icon" type="image/png" href="./myLocal/img/favicon/favicon-32x32.png" sizes="32x32">
+		<link rel="icon" type="image/png" href="./myLocal/img/favicon/favicon-16x16.png" sizes="16x16">
+		<link rel="manifest" href="./myLocal/img/favicon/manifest.json">
+		<link rel="mask-icon" href="./myLocal/img/favicon/safari-pinned-tab.svg" color="#000000">
+		<meta name="msapplication-TileColor" content="#da532c">
+		<meta name="theme-color" content="#ffffff">
 	</head>
 	<body>
 		<div id="main">
