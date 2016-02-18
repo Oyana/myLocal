@@ -1,0 +1,128 @@
+body{
+	background-image:image-url('../img/' + $main-bck);
+}
+
+a{
+	@extend .block;
+	width: 100%;
+	text-decoration: none;
+	text-align: center;
+	text-transform: uppercase;
+	color: white;
+}
+
+.site-l{
+	@extend .auto-block;
+	max-width: $siteW;
+	width: 100%;
+}
+
+.site{
+	@extend .left-block;
+	width: 25%;
+	border: 3rem solid transparent;
+}
+
+.axe{
+	@extend .full-block;
+}
+
+.bck-axe{
+	@extend .full-bg;
+	background-color: rgba(0,0,0,0.5);
+}
+
+.site-content{
+	@extend .full-block;
+
+	@include border-radius(50%);
+	@include transition( box-shadow 0.5s );
+
+	&:hover, &:focus{
+		// $hoff, $voff, $blur, $spread, $color, $inset
+		@include single-box-shadow(0, 0, 0.5rem, 0.1rem, green);
+
+		.local-link{
+			margin-top: 0%;
+		}
+
+		.git-link{
+			margin-top: -70%;
+		}
+	}
+
+	.git-link, .local-link{
+		@extend .block;
+		float: none;
+		width: 120%;
+		height: 100%;
+		line-height: 100%;
+		margin-top: 110%;
+		margin-left: -10%;
+		color: green;
+		background-color: rgba(255,255,255,0.2);
+
+		// $hoff, $voff, $blur, $spread, $color, $inset
+		@include single-box-shadow(0, 0, 1.5rem, 0, rgba(0,0,0,0.75));
+		@include transition( margin-top 0.5s, background-color 0.5s );
+
+		img{
+			@extend .absolute-block;
+			width: 3rem;
+			padding: 0.3rem;
+			bottom: 1rem;
+			right: 0;
+			left: 0;
+			margin: auto;
+			@include transition( background-color 0.5s, border-radius 0.5s );
+		}
+
+		&:hover, &:focus{
+			text-shadow: 1px 1px rgba(0,255,0,0.1);
+			background-color: rgba(255,255,255,0.6);
+
+			// $hoff, $voff, $blur, $spread, $color
+			@include single-text-shadow(0.2rem, 0.2rem, 0.2rem, 0.2rem, rgba(0,255,0,0.3));
+
+			img{
+				background-color: white;
+				@include border-radius(50%);
+			}
+		}
+	}
+
+	.git-link{
+		margin-top: -110%;
+	}
+}
+
+#btnMenu{
+	@extend .fixed-block;
+	left: 0;
+	top: 0;
+	width: 3.2rem;
+	padding: 1rem;
+	z-index: 9999;
+
+	img{
+		box-sizing: content-box;
+		width: 3.2rem;
+		padding: 1rem;
+		@include transition( background-color 0.5s, border-radius 0.5s );
+	}
+
+	&:hover, &:focus{
+		img{
+			background-color: white;
+			@include border-radius(50%);
+		}
+	}
+}
+
+#conffZone
+{
+	min-height: 100vh;
+	clear: both;
+	display: none;
+	background-color: rgba(255,255,255,0.1);
+}

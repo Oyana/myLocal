@@ -1,15 +1,17 @@
 <?php
 function displayHead()
 {
+		// <link rel="stylesheet" type="text/css" href="./myLocal/css/reset.css">
+		// <link rel="stylesheet" type="text/css" href="./myLocal/css/jquery.mmenu.all.css">
+		// <link rel="stylesheet" type="text/css" href="./myLocal/css/styles.css">
+		// <link rel="stylesheet" type="text/css" href="./myLocal/css/media.css">
 	echo <<<EOF
 	<!DOCTYPE html>
 	<html>
 	<head>
 		<title>localHost | homeSweetHome...</title>
-		<link rel="stylesheet" type="text/css" href="./myLocal/css/reset.css">
-		<link rel="stylesheet" type="text/css" href="./myLocal/css/jquery.mmenu.all.css">
-		<link rel="stylesheet" type="text/css" href="./myLocal/css/styles.css">
-		<link rel="stylesheet" type="text/css" href="./myLocal/css/media.css">
+		<link rel="stylesheet" type="text/css" href="./myLocal/css/myLocal.css">
+		<!-- favicon -->
 		<link rel="apple-touch-icon" sizes="57x57" href="./myLocal/img/favicon/apple-touch-icon-57x57.png">
 		<link rel="apple-touch-icon" sizes="60x60" href="./myLocal/img/favicon/apple-touch-icon-60x60.png">
 		<link rel="apple-touch-icon" sizes="72x72" href="./myLocal/img/favicon/apple-touch-icon-72x72.png">

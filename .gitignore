@@ -3,6 +3,7 @@
 /screen/*
 /css/user-styles.css
 /js/user-scripts.js
+/cache/.sass-cache/*
 
 # Compiled source #
 ###################
