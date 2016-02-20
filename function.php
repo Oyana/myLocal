@@ -88,7 +88,7 @@ function getComitKey($checkFolder)
 	{
 		$fp = fopen($confFile, 'r');
 		$data = fread($fp, 4096);
-		$key = split("	",$data)[0];
+		$key = explode("	",$data)[0];
 		return $key;
 	}
 	else
@@ -100,7 +100,7 @@ function displayList()
 {
 	echo '<ul class="site-l">';
 	$files = scandir("./");
-	$realpath = str_replace(array('/', '\\'),'',split( ":",realpath('.') )[1]);
+	$realpath = str_replace(array('/', '\\'),'',explode( ":",realpath('.') )[1]);
 	foreach ($files as $key => $value) 
 	{
 		if (
@@ -180,15 +180,15 @@ function displayList()
 				$conffGitSplit = array();
 				$data = str_replace(array(' ','&lt;br/&gt;','&quot;', '	', '\nl', '\r', '\rn', '\r\n', '\n\r','"', ']','['), '', $data);
 				$data = nl2br($data);
-				$data = split('\nl', $data);
+				$data = explode('\nl', $data);
 				$conff = "";
 				foreach ($data as $key => $val) {
 					$conff .= $val;
 				}
-				$conffGit = split('<br />', $conff);
+				$conffGit = explode('<br />', $conff);
 				foreach ($conffGit as $key => $v)
 				{
-					$v = split('=',$v);
+					$v = explode('=',$v);
 				
 					if ( !empty($v[0]) && !empty($v[1]) )
 					{
@@ -199,11 +199,11 @@ function displayList()
 				if (!empty($conffGitSplit["url"]))
 				{
 					$link = $conffGitSplit["url"];
-					if ( isset( split( "github", $link )[1] ) )
+					if ( isset( explode( "github", $link )[1] ) )
 					{
 						$linkType = "github";
 					}
-					elseif ( isset( split( "bitbucket", $link )[1] ) ) {
+					elseif ( isset( explode( "bitbucket", $link )[1] ) ) {
 						$linkType = "bitbucket";
 					}
 					else
