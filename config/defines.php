@@ -1,6 +1,6 @@
 <?php 
 // DEV
-define("MYLOCAL_RELEASE", "0.1");
+define("MYLOCAL_RELEASE", "0.2");
 define("DEV_MOD", true);
 define("COMPRESSED_FILES_MOD", true);
 define("CACHES_FILES_MOD", true);
