@@ -13,6 +13,16 @@
 #	This setting will handle all files NOT found below.
 * text=auto
 
+#clean export zip file
+.gitattributes export-ignore
+.gitignore export-ignore
+patches.txt export-ignore
+/templates/night2015/config.rb export-ignore
+/templates/night2015/scss export-ignore
+/templates/day2015/config.rb export-ignore
+/templates/day2015/scss export-ignore
+
+
 # INFO Source code
 
 *.htm text filter=tabspace
