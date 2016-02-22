@@ -60,6 +60,9 @@ $configUrl = array(
 
 $configMod = array(
 	"dev"				=>	DEV_MOD,
+	"allowUpdate"		=>	UPDATE_SCAN,
+	"allowGitScan"		=>	REPO_SCAN,
+	"release"			=>	MYLOCAL_RELEASE,
 	"compressed_files"		=>	COMPRESSED_FILES_MOD
 );
 $smarty->assign("url", $configUrl);
