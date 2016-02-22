@@ -1,0 +1,1 @@
+<a id="btnMenu" href="#menu"><img src="{$url.img}/menu.png" alt="menu"/></a>

@@ -4,6 +4,8 @@
 /css/user-styles.css
 /js/user-scripts.js
 /cache/.sass-cache/*
+/cache/.smarty-cache/*
+/cache/.smarty-compile/*
 
 # Compiled source #
 ###################
