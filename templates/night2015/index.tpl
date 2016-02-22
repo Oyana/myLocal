@@ -11,7 +11,7 @@
 						{elseif  !empty($site.baseUrl) and !empty($site.identifier)}
 							<a class='git-link' target='_blank' href='{$site.baseUrl}"/"{$site.identifier}' title='{$site.name} bitbucket'><img src='{$url.img}/bitbucket_logo.png' alt='logo bitbucket'/></a>
 						{/if}
-						<a class='local-link' href='"{$site.name}"' title='"{$site.name}" local'>{$site.name}</a>
+						<a class='local-link' href='{$site.name}' title='{$site.name} local'>{$site.name}</a>
 					</div>
 				</div>
 			</div>

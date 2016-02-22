@@ -5,6 +5,10 @@ $(function(){
 	var url = window.location.href; 
 	var mmenu = $('nav#menu').mmenu();
 	var refreshW = 2000; // reload .site width 2s after window's reload
+	var config_dev = $("#ajaxConfig input[name=dev]").val();
+	var config_allowUpdate = $("#ajaxConfig input[name=allowUpdate]").val();
+	var config_allowGitScan = $("#ajaxConfig input[name=allowGitScan]").val();
+	var config_release = $("#ajaxConfig input[name=release]").val();
 
 	function displayConff()
 	{
@@ -100,11 +104,25 @@ $(function(){
 
 	// on site load
 	updateWSize();
-	$.ajax({
-		url: "https://api.github.com/repos/Golgarud/myLocal/commits"
-	}).done(function( data ) 
+	if ( config_allowUpdate )
 	{
-		// alert(data[0]["sha"]);
-		$("html").append(  );
-	});
+		$.ajax({
+			url: "https://api.github.com/repos/Golgarud/myLocal/releases/latest"
+		}).done(function( data ) 
+		{
+			// alert(data[0]["sha"]);
+			$("html").append( data );
+			if ( parseFloat(config_release) <  parseFloat(data.tag_name) )
+			{
+				console.log( data.tag_name );
+				console.log( data.name );
+				console.log( data.zipball_url );
+				console.log( data.author.login );
+				console.log( data.author.avatar_url );
+				console.log( data.name );
+				console.log( parseFloat(config_release) +"<"+  parseFloat(data.tag_name));
+			}
+			
+		});
+	}
 });
