@@ -1,9 +1,8 @@
 <?php 
-// DEV
-define("MYLOCAL_RELEASE", "0.2");
+define("MYLOCAL_RELEASE", "0.2.2");
 define("DEV_MOD", true);
 define("COMPRESSED_FILES_MOD", true);
-define("CACHES_FILES_MOD", true);
+define("CACHES_FILES_MOD", false);
 define("CHECK_COMPILATION", true);
 define("MAIN_FOLDER_NAME", "myLocal");
 define("TEMPLATE_NAME", "night2015");

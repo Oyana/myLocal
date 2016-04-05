@@ -1,1 +1,5 @@
-<a id="btnMenu" href="#menu"><img src="{$url.img}/menu.png" alt="menu"/></a>
+<a id="btnMenu" href="#menu">
+	<div class="ico-container">
+		<i class="spLogo-menu"></i>
+	</div>
+</a>

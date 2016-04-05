@@ -6,6 +6,7 @@
 /cache/.sass-cache/*
 /cache/.smarty-cache/*
 /cache/.smarty-compile/*
+/templates/*/node_modules/
 
 # Compiled source #
 ###################

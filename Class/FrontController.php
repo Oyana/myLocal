@@ -141,10 +141,11 @@ class FrontController extends Controller
 
 				$xmlfile = $value."/.git/sourcetreeconfig";
 				$confFile = $value."/.git/config";
+				$confSvn = $value."/.svn/";
 				
 				$siteList[$key]["img"] = $this->getBck( $siteList[$key]["name"] );
 				$siteList[$key]["commitKey"] = $this->getComitKey( $siteList[$key]["name"] );
-				if (file_exists($xmlfile))
+				if ( file_exists($xmlfile) )
 				{
 					$xmlparser = xml_parser_create();
 					$fp = fopen($xmlfile, 'r');
@@ -166,7 +167,7 @@ class FrontController extends Controller
 				}
 			
 				// could cause error login if clone by url
-				if(file_exists($confFile) && empty($identifier) )
+				if( file_exists($confFile) && empty($identifier) )
 				{
 					$fp = fopen($confFile, 'r');
 					$data = fread($fp, 4096);
@@ -205,8 +206,12 @@ class FrontController extends Controller
 						{
 							$siteList[$key]["linkType"] = "git";
 						}
-					}
-					
+					}	
+				}
+				elseif ( file_exists($confSvn) )
+				{
+					$siteList[$key]["linkType"] = "svn";
+					$siteList[$key]["link"] = "#svn";
 				}
 			}
 		}

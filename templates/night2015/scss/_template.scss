@@ -40,7 +40,7 @@ a{
 
 	&:hover, &:focus{
 		// $hoff, $voff, $blur, $spread, $color, $inset
-		@include single-box-shadow(0, 0, 0.5rem, 0.1rem, green);
+		@include single-box-shadow(0, 0, 0.5rem, 0.1rem, $mainColor);
 
 		.local-link{
 			margin-top: 0%;
@@ -59,14 +59,14 @@ a{
 		line-height: 100%;
 		margin-top: 110%;
 		margin-left: -10%;
-		color: green;
+		color: $mainColor;
 		background-color: rgba(255,255,255,0.2);
 
 		// $hoff, $voff, $blur, $spread, $color, $inset
 		@include single-box-shadow(0, 0, 1.5rem, 0, rgba(0,0,0,0.75));
 		@include transition( margin-top 0.5s, background-color 0.5s );
 
-		img{
+		.ico-container{
 			@extend .absolute-block;
 			width: 3rem;
 			padding: 0.3rem;
@@ -78,13 +78,13 @@ a{
 		}
 
 		&:hover, &:focus{
-			text-shadow: 1px 1px rgba(0,255,0,0.1);
+			text-shadow: 1px 1px rgba($mainColor,0.1);
 			background-color: rgba(255,255,255,0.6);
 
 			// $hoff, $voff, $blur, $spread, $color
-			@include single-text-shadow(0.2rem, 0.2rem, 0.2rem, 0.2rem, rgba(0,255,0,0.3));
+			@include single-text-shadow(0.2rem, 0.2rem, 0.2rem, 0.2rem, rgba($mainColor,0.3));
 
-			img{
+			.ico-container{
 				background-color: white;
 				@include border-radius(50%);
 			}
@@ -104,15 +104,16 @@ a{
 	padding: 1rem;
 	z-index: 9999;
 
-	img{
+	.ico-container{
 		box-sizing: content-box;
-		width: 3.2rem;
+		width: 2.5rem;
+		height: 2.5rem;
 		padding: 1rem;
 		@include transition( background-color 0.5s, border-radius 0.5s );
 	}
 
 	&:hover, &:focus{
-		img{
+		.ico-container{
 			background-color: white;
 			@include border-radius(50%);
 		}
@@ -125,4 +126,60 @@ a{
 	clear: both;
 	display: none;
 	background-color: rgba(255,255,255,0.1);
+}
+
+.maj-info{
+	@extend .fixed-block;
+	bottom: 2rem;
+	right: 2rem;
+	padding-left: 2rem;
+	padding-right: 2rem;
+	padding-top: 2rem;
+	padding-bottom: 1rem;
+	background-color: #212121;
+	color: white;
+
+	@include border-radius(0.5rem);
+	@include transition( box-shadow 0.5s );
+	@include single-box-shadow(0, 0, 0.5rem, 0.1rem, $mainColor);
+
+	&:hover, &:focus{
+		@include single-box-shadow(0, 0, 0.5rem, 0.1rem, white);
+	}
+
+	a{
+		display: inline;
+		color: $mainColor;
+		&:hover, &:focus{
+			text-decoration: underline;
+		}
+	}
+	.link-container{
+		@extend .auto-block;
+		width: 8rem;
+		.dl, .git{
+			@extend .left-block;
+			height: 3.5rem;
+			width: 3.5rem;
+			padding: 0.5rem;
+			margin-top: 1rem;
+			@include transition( background-color 0.5s, border-radius 0.5s );
+			
+			&:hover{
+				background-color: white;
+				@include border-radius(50%);
+			}
+		}
+		.git{
+			margin-left: 1rem;
+		}
+
+	}
+	.close{
+		position: absolute;
+		right: 0;
+		top: 0;
+		text-align: right;
+		padding: 0.5rem;
+	}
 }
