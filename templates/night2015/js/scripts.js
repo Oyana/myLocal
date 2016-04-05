@@ -3,6 +3,7 @@ $(function(){
 	var site_w;
 	var lineHeight;
 	var url = window.location.href; 
+	var tag = window.location.href.split("#")[1];
 	var mmenu = $('nav#menu').mmenu();
 	var refreshW = 2000; // reload .site width 2s after window's reload
 	var config_dev = $("#ajaxConfig input[name=dev]").val();
@@ -77,25 +78,62 @@ $(function(){
 		});
 	}
 
-	if ( url.split("#")[1] == "conff" )
+	function displayPopUpMaj( data )
 	{
-		$(window).trigger('hashchange');
-		console.log(url.split("#"));
-		displayConff();
+		var html =	"<div class='maj-info'>" +
+					"<a class='close' href='#closeMaj' >x</a>" +
+					"<span> MyLocal " + 
+					"<a title='View release on GitHub' href='" + data.html_url  + "' >" + data.tag_name + "</a>" +
+					" is now available! </span>" +
+					"<span class='link-container'>" +
+						"<a class='dl' title='Download zip' href='" + data.zipball_url + "' download ><i class='spLogo-zip'></i></a>" +
+						"<a class='git' title='View on GitHub' href='https://github.com/Golgarud/myLocal' ><i class='spLogo-github'></i></a>" +
+					"</span>" +
+				"</div>";
+		return html;
 	}
-	// on hashchange or trigger hashchange
-	$(window).on('hashchange', function(e){
-		url = window.location.href; 
-		if ( url.split("#")[1] == "conff" )
+
+	function hashchangeFunction()
+	{
+		tag = window.location.href.split("#")[1];
+		window.history.replaceState(null, null, url);
+
+		switch(  tag )
 		{
-			closeMM();
-			displayConff();
+			case "conff":
+				closeMM();
+				displayConff();
+			break;
+			case "closeConff":
+				$("#conffZone").slideToggle(500);
+			break;
+			case "closeMaj":
+				$(".maj-info").slideToggle(500);
+			break;
+			default:
+				console.log( "unknow " + tag + " hashange on script.js");
+			break;
 		}
-		else if( url.split("#")[1] == "closeConff" )
-		{
-			$("#conffZone").slideToggle(500);
-		}
+
+	}
+
+	if (
+			tag != ''
+		&&	tag != null
+		&&	tag != "null"
+		&&	tag != undefined
+		&&	tag != "undefined"
+	)
+	{
+
+		hashchangeFunction();
+	}
+	// hashchange detection (#pseudoElem)
+	$(window).on('hashchange', function(e)
+	{
+		hashchangeFunction();
 	});
+
 	// on reload done
 	$(window).on('resize', function(e) {
 		clearTimeout(resizeTimer);
@@ -112,17 +150,12 @@ $(function(){
 		{
 			// alert(data[0]["sha"]);
 			$("html").append( data );
+			// ignore fix release (0.0.x) in test for displaying popup
+			// but take it in popup link (if pass popup test)
 			if ( parseFloat(config_release) <  parseFloat(data.tag_name) )
 			{
-				console.log( data.tag_name );
-				console.log( data.name );
-				console.log( data.zipball_url );
-				console.log( data.author.login );
-				console.log( data.author.avatar_url );
-				console.log( data.name );
-				console.log( parseFloat(config_release) +"<"+  parseFloat(data.tag_name));
-			}
-			
+				$("#main").append( displayPopUpMaj(data) );
+			}			
 		});
 	}
 });
