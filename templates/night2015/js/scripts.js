@@ -4,7 +4,12 @@ $(function(){
 	var lineHeight;
 	var url = window.location.href; 
 	var tag = window.location.href.split("#")[1];
-	var mmenu = $('nav#menu').mmenu();
+	var mmenu = $('nav#menu').mmenu({
+		navbar: {
+				title: "localHost sweet localHost",
+			},
+		searchfield: true,
+	});
 	var refreshW = 2000; // reload .site width 2s after window's reload
 	var config_dev = $("#ajaxConfig input[name=dev]").val();
 	var config_allowUpdate = $("#ajaxConfig input[name=allowUpdate]").val();

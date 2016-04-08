@@ -15,34 +15,16 @@ gulp.task('default', ['script-concat', 'watch']);
 
 gulp.task('script-concat', function(){
 
-	// var files = [
-	// 	jsWpPath+'/wp-embed.min.js',
-	// 	jsPath+'/aleteia.js',
-	// 	jsPath+'/functions.js',
-	// 	jsPath+'/softloading.js',
-	// 	jsPath+'/googl-analitycs.js',
-	// 	jsPath+'/bootstrap-scrollspy.js',
-	// 	jsPath+'/aleteiaDesktop.js'
-	// ];
-	// gulp.src(files)
-	// 	.pipe(plumber())
-	// 	.pipe(concat('aleteia-desktop.min.js'))
-	// 	.pipe(uglify())
-	// 	.pipe(gulp.dest(jsPath));
-
-	// files = [
-	// 	jsWpPath+'/wp-embed.min.js',
-	// 	jsPath+'/aleteia.js',
-	// 	jsPath+'/functions.js',
-	// 	jsPath+'/softloading.js',
-	// 	jsPath+'/aleteia-mobile.js',
-	// 	jsPath+'/jquery-smoothscroll.js'
-	// ];
-	// gulp.src(files)
-	// 	.pipe(plumber())
-	// 	.pipe(concat('aleteia-mobile.min.js'))
-	// 	.pipe(uglify())
-	// 	.pipe(gulp.dest(jsPath));
+	var files = [
+		jsPath+'/jquery_2_1_4.js',
+		jsPath+'/*.js',
+		'!'+jsPath+'/*.min.js'
+	];
+	gulp.src(files)
+		.pipe(plumber())
+		.pipe(concat('main.min.js'))
+		.pipe(uglify())
+		.pipe(gulp.dest(jsPath));
 });
 
 gulp.task('compass', function() {
@@ -56,5 +38,6 @@ gulp.task('compass', function() {
 });
 
 gulp.task('watch', function(){
+	gulp.watch(cssPath+"/**/*.scss", ['compass']);
 	gulp.watch(jsPath+"/**/*.js", ['script-concat']);
 });
