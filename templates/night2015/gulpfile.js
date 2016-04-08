@@ -18,7 +18,7 @@ gulp.task('script-concat', function(){
 	var files = [
 		jsPath+'/jquery_2_1_4.js',
 		jsPath+'/*.js',
-		'!'+jsPath+'/*.min.js'
+		'!'+jsPath+'/main.min.js'
 	];
 	gulp.src(files)
 		.pipe(plumber())
@@ -39,5 +39,5 @@ gulp.task('compass', function() {
 
 gulp.task('watch', function(){
 	gulp.watch(cssPath+"/**/*.scss", ['compass']);
-	gulp.watch(jsPath+"/**/*.js", ['script-concat']);
+	gulp.watch([jsPath+"/**/*.js", "!"+jsPath+"/**/*min.js"], ['script-concat']);
 });

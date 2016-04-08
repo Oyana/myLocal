@@ -113,8 +113,10 @@ class FrontController extends Controller
 				&&	$value != "."
 				&&	$value != ".."
 				&&	!is_file( $value )
-				&&	$value != "myLocal"
+				&&	$value != MAIN_FOLDER_NAME
 				&&	$value != "xampp"
+				&&	$value != "mampp"
+				&&	$value != "lampp"
 				&&	$value != "wampp"
 				&&	$value != "dashboard"
 				&&	$value != "lampp"
@@ -131,6 +133,7 @@ class FrontController extends Controller
 				)
 			{
 				$siteList[$key]["name"] = $value;
+				$siteList[$key]["local_link"] = ROOT_LOCAL . $value;
 				// reset var
 				$siteList[$key]["img"] = "";
 				$siteList[$key]["baseUrl"] = "";
@@ -230,14 +233,9 @@ class FrontController extends Controller
 			{
 				foreach ($ext as $k3 => $fileExt)
 				{
-					if ( file_exists('myLocal/screen/' . $siteName . '.' . $fileExt) )
+					if ( file_exists($fileFold . '/' . $fileName . '.' . $fileExt) )
 					{
-						$img = 'myLocal/screen/' . $siteName . '.' . $fileExt;
-						return $img;
-						break;
-					}
-					elseif ( file_exists($fileFold . '/' . $fileName . '.' . $fileExt) )
-					{
+						$img = ROOT_LOCAL . $fileFold . '/' . $fileName . '.' . $fileExt;
 						$img = $fileFold . '/' . $fileName . '.' . $fileExt;
 						return $img;
 						break;

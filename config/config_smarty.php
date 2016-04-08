@@ -23,6 +23,7 @@ if ( COMPRESSED_FILES_MOD )
 	$smarty->registerFilter("output", "minify_html");
 }
 $configRoot = array(
+	"root_local"			=>	ROOT_LOCAL,
 	"root_url"			=>	ROOT_URL,
 	"root"				=>	ROOT_DIR,
 	"config"			=>	CONFIG_DIR,
@@ -41,6 +42,7 @@ $configRoot = array(
 );
 
 $configUrl = array(
+	"root_local"			=>	ROOT_LOCAL,
 	"root_url"			=>	ROOT_URL,
 	"root"				=>	ROOT_URL,
 	"config"			=>	URL_DOM . CONFIG_DIR,

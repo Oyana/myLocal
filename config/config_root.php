@@ -21,18 +21,19 @@ function rp( $path )
 	return ($path{0}=='/'?'/':'').join('/', $out);
 }
 $root = explode( basename($_SERVER['PHP_SELF']), $_SERVER["PHP_SELF"] );
+
+$InFold = explode( MAIN_FOLDER_NAME, $root[0] );
+// check path
+
 if ( defined("MAIN_FOLDER_NAME") )
 {
-	if( $root[0] != "/" )
+	if ( isset($InFold[1]) )
 	{
-		define("ROOT_DIR", $root[0] . "/" . MAIN_FOLDER_NAME);
-		define("ROOT_URL", "http://" . $_SERVER['HTTP_HOST'] . ROOT_DIR);
+		chdir("..");
 	}
-	else
-	{
-		define("ROOT_DIR", MAIN_FOLDER_NAME);
-		define("ROOT_URL", "http://" . $_SERVER['HTTP_HOST'] . "/" . ROOT_DIR);
-	}
+	define("ROOT_DIR", MAIN_FOLDER_NAME);
+	define("ROOT_LOCAL", "http://" . $_SERVER['HTTP_HOST'] . "/" );
+	define("ROOT_URL", "http://" . $_SERVER['HTTP_HOST'] . "/" . ROOT_DIR);
 }
 else{
 	define("ROOT_DIR",$root[0]);
@@ -60,5 +61,4 @@ define("TEMPLATE_DIR", rp( ROOT_DIR . "/templates/" . TEMPLATE_NAME) );
 define("IMG_DIR", TEMPLATE_DIR . "/img");
 define("JS_DIR", TEMPLATE_DIR . "/js");
 define("CSS_DIR", TEMPLATE_DIR . "/css");
-
 ?>

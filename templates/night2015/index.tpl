@@ -19,7 +19,7 @@
 								</div>
 							</a>
 						{/if}
-						<a class='local-link' href='{$site.name}' title='{$site.name} local'>{$site.name}</a>
+						<a class='local-link' href='{$site.local_link}' title='{$site.name} local'>{$site.name}</a>
 					</div>
 				</div>
 			</div>
