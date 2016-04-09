@@ -30,7 +30,15 @@ a{
 .bck-axe{
 	@extend .full-bg;
 	background-color: rgba(0,0,0,0.5);
-}
+} 
+
+// #menu{
+// 	visibility: hidden;
+// }
+
+// @keyframes loadingMenu{
+// 	visibility: visible;
+// }
 
 .site-content{
 	@extend .full-block;

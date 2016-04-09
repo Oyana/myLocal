@@ -38,6 +38,6 @@ gulp.task('compass', function() {
 });
 
 gulp.task('watch', function(){
-	gulp.watch(cssPath+"/**/*.scss", ['compass']);
+	gulp.watch(scssPath+"/**/*.scss", ['compass']);
 	gulp.watch([jsPath+"/**/*.js", "!"+jsPath+"/**/*min.js"], ['script-concat']);
 });

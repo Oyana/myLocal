@@ -236,7 +236,6 @@ class FrontController extends Controller
 					if ( file_exists($fileFold . '/' . $fileName . '.' . $fileExt) )
 					{
 						$img = ROOT_LOCAL . $fileFold . '/' . $fileName . '.' . $fileExt;
-						$img = $fileFold . '/' . $fileName . '.' . $fileExt;
 						return $img;
 						break;
 					}
