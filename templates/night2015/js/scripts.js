@@ -75,11 +75,15 @@ $(function(){
 			$(this).css({
 				"height": site_w
 			});
+
+			$(this).addClass("loadingfade");
 		});
 		$('.site-content .local-link').each(function(index, el) {
 			$(this).css({
 				"line-height": lineHeight
 			});
+
+			$(this).addClass("loadingfade");
 		});
 	}
 
@@ -147,6 +151,7 @@ $(function(){
 
 	// on site load
 	updateWSize();
+	$(mmenu).css({"visibility":"visible"});
 	if ( config_allowUpdate )
 	{
 		$.ajax({

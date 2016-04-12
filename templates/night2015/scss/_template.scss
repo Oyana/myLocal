@@ -1,5 +1,6 @@
 body{
 	background-image:image-url('../img/' + $main-bck);
+	background-color: #1C1C1C;
 }
 
 a{
@@ -21,6 +22,24 @@ a{
 	@extend .left-block;
 	width: 25%;
 	border: 3rem solid transparent;
+	opacity: 0;
+	&.loadingfade{
+		opacity: 1;
+	}
+}
+
+.loadingfade{
+	@include animation(loadingfade 1s linear 0s);
+}
+
+@include keyframes(loadingfade)
+{
+	0% {
+  		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
 }
 
 .axe{
@@ -32,13 +51,9 @@ a{
 	background-color: rgba(0,0,0,0.5);
 } 
 
-// #menu{
-// 	visibility: hidden;
-// }
-
-// @keyframes loadingMenu{
-// 	visibility: visible;
-// }
+#menu{
+  	visibility: hidden;
+}
 
 .site-content{
 	@extend .full-block;
@@ -126,14 +141,6 @@ a{
 			@include border-radius(50%);
 		}
 	}
-}
-
-#conffZone
-{
-	min-height: 100vh;
-	clear: both;
-	display: none;
-	background-color: rgba(255,255,255,0.1);
 }
 
 .maj-info{

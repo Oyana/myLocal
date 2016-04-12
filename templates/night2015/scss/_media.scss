@@ -20,6 +20,15 @@
 	}
 }
 
+@media(max-width: 680px)
+{
+	#conffZone{
+		.formControl{
+			margin-left: -5%;
+		}
+	}
+}
+
 @media(max-width: 400px)
 {
 	.site{

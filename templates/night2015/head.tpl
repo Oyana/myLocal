@@ -21,6 +21,7 @@
 			<input type='hidden' name='allowUpdate' value='{$mod.allowUpdate}' />
 			<input type='hidden' name='allowGitScan' value='{$mod.allowGitScan}' />
 			<input type='hidden' name='release' value='{$mod.release}' />
+			<input type='hidden' name='path' value='{$mod.path}' />
 		</form>
 		<!-- ajax config end-->
 		<div id="main">

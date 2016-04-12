@@ -85,7 +85,7 @@ class FrontController extends Controller
 			switch ($_POST["method"])
 			{
 				case 'getConfForm':
-					displayConfForm();
+					$this->displayConfForm();
 					break;
 				default:
 					echo "Error: undefined method!";
@@ -219,6 +219,11 @@ class FrontController extends Controller
 			}
 		}
 		$this->smartyAssign( array('sites' => $siteList ) );
+	}
+
+	public function displayConfForm()
+	{
+		$this->smartyDisplay( "config" );
 	}
 
 	public function getBck( $siteName )
