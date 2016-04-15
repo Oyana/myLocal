@@ -42,7 +42,9 @@ else{
 define("URL_DOM", "http://" . $_SERVER['HTTP_HOST'] . "/" );
 
 define("CONFIG_DIR", rp(ROOT_DIR . "/config") );
-define("SHOOT_DIR", rp(ROOT_DIR . "/screen") );
+define("CUSTOM_FOLD", rp(ROOT_DIR . "/config-user") );
+define("SHOOT_DIR", rp( CUSTOM_FOLD. "/img") );
+
 
 // class
 define("CLASS_DIR", rp( ROOT_DIR . "/Class" ) );

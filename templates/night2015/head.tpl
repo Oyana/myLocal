@@ -13,6 +13,11 @@
 		<link rel="mask-icon" href="{$url.img}/favicon/safari-pinned-tab.svg">
 		<meta name="msapplication-TileColor" content="#da532c">
 		<meta name="theme-color" content="#ffffff">
+		{if isset($userConfig.css) }
+			<style>
+				{$userConfig.css}
+			</style>
+		{/if}
 	</head>
 	<body>
 		<!-- ajax config -->

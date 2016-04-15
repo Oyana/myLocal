@@ -7,6 +7,9 @@
 /cache/.smarty-cache/*
 /cache/.smarty-compile/*
 /templates/*/node_modules/
+/config-user/*
+/config-user/img/*
+!/config-user/img/
 
 # Compiled source #
 ###################

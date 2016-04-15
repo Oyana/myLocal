@@ -8,6 +8,7 @@
 class FrontController extends Controller
 {
 	private $templateList;
+	private $userConfig;
 	
 	/**
 	 * __construct moduleController
@@ -62,7 +63,29 @@ class FrontController extends Controller
 		else
 		{
 			$this->smartyAssign( $glob );
+
+			if (empty( $this->userConfig ))
+			{
+				$this->catchUserConfig();
+			}
+			$this->smartyAssign( array('userConfig' => $this->userConfig ) );
 		}
+	}
+
+	public function catchUserConfig( )
+	{
+		$customData = array();
+		if ( file_exists( CUSTOM_FOLD . "/custom-user.css" ) )
+		{
+			$customData["css"] = file_get_contents(CUSTOM_FOLD . "/custom-user.css");
+		}
+		if ( file_exists( CUSTOM_FOLD . "/custom-user.js" ) )
+		{
+			$customData["js"] = file_get_contents(CUSTOM_FOLD . "/custom-user.js");
+		}
+		
+		$this->userConfig = $customData;
+		return $this->userConfig;
 	}
 
 	/**
@@ -87,8 +110,11 @@ class FrontController extends Controller
 				case 'getConfForm':
 					$this->displayConfForm();
 					break;
+				case 'submitConfig':
+					$this->submitConfig();
+					break;
 				default:
-					echo "Error: undefined method!";
+					echo "Error: undefined method: " . $_POST["method"] . " in FrontController!";
 					die();
 					break;
 			}
@@ -265,6 +291,21 @@ class FrontController extends Controller
 		{
 			return false;
 		}
+	}
+
+	public function submitConfig()
+	{
+		$myfile = fopen( CUSTOM_FOLD . "/custom-user.css", "w" ) or die("Unable to open custom css file! <br/> please check that you have granted your PHP file access ( " . ROOT_DIR . "/config-user/custom-user.css )");
+		
+		$txt = $_POST['customCSS'];
+		fwrite($myfile, $txt);
+		fclose($myfile);
+
+		$myfile = fopen( CUSTOM_FOLD . "/custom-user.js", "w" ) or die("Unable to open custom js file! <br/> please check that you have granted your PHP file access ( " . ROOT_DIR . "/config-user/custom-user.css )");
+		$txt = $_POST['customJS'];
+		fwrite($myfile, $txt);
+		fclose($myfile);
+		header("Refresh:0");
 	}
 }
 ?>

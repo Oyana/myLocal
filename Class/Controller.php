@@ -82,4 +82,11 @@ class Controller
 		}
 		return true; 
 	}
+
+	public function minify($data)
+	{
+		$data = preg_replace('![\t ]*[\r\n]+[\t ]*!', '', $data);
+		return $data;
+	}
+
 }
