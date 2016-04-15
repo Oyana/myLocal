@@ -8,8 +8,9 @@
 /cache/.smarty-compile/*
 /templates/*/node_modules/
 /config-user/*
-/config-user/img/*
 !/config-user/img/
+/config-user/img/*
+!/config-user/img/readme.md
 
 # Compiled source #
 ###################
