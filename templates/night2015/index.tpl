@@ -1,6 +1,11 @@
 <ul class="site-l">
 {foreach from=$sites item=site key=key}
-	<li class='site'>
+{* circle *}
+{* square *}
+{* diamond *}
+{* hexagone *}
+{* octogone *}
+	<li class='site circle'>
 		<input class='comitKey' type='hidden' value='{$site.commitKey}' />
 		<div class='site-content' >
 			<div class='rotation-axe axe'>

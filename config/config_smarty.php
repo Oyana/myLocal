@@ -65,7 +65,8 @@ $configMod = array(
 	"allowUpdate"		=>	UPDATE_SCAN,
 	"allowGitScan"		=>	REPO_SCAN,
 	"release"			=>	MYLOCAL_RELEASE,
-	"compressed_files"		=>	COMPRESSED_FILES_MOD
+	"compressed_files"		=>	COMPRESSED_FILES_MOD,
+	"path"				=>	ROOT_URL
 );
 $smarty->assign("url", $configUrl);
 $smarty->assign("dir", $configRoot);

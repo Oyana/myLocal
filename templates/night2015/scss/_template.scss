@@ -58,7 +58,6 @@ a{
 .site-content{
 	@extend .full-block;
 
-	@include border-radius(50%);
 	@include transition( box-shadow 0.5s );
 
 	&:hover, &:focus{
@@ -116,6 +115,21 @@ a{
 
 	.git-link{
 		margin-top: -110%;
+	}
+}
+
+/* Custom site form */
+.site{
+	&.square{
+		.site-content{
+			/* Default */
+		}
+	}
+	&.circle .site-content{
+		@include border-radius(50%);
+	}
+	&.diamond{
+		// @include transform( rotate(-45deg) );
 	}
 }
 

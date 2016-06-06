@@ -15,6 +15,7 @@ $(function(){
 	var config_allowUpdate = $("#ajaxConfig input[name=allowUpdate]").val();
 	var config_allowGitScan = $("#ajaxConfig input[name=allowGitScan]").val();
 	var config_release = $("#ajaxConfig input[name=release]").val();
+	var config_path = $("#ajaxConfig input[name=path]").val();
 
 	function displayConff()
 	{
@@ -95,7 +96,7 @@ $(function(){
 					"<a title='View release on GitHub' href='" + data.html_url  + "' >" + data.tag_name + "</a>" +
 					" is now available! </span>" +
 					"<span class='link-container'>" +
-						"<a class='dl' title='Download zip' href='" + data.zipball_url + "' download ><i class='spLogo-zip'></i></a>" +
+						"<a class='dl' title='Download zip' href='" + config_path + "/tools/updateCore.php?release=" + data.tag_name + "' ><i class='spLogo-zip'></i></a>" +
 						"<a class='git' title='View on GitHub' href='https://github.com/Golgarud/myLocal' ><i class='spLogo-github'></i></a>" +
 					"</span>" +
 				"</div>";

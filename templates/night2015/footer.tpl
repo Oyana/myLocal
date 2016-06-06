@@ -5,9 +5,10 @@
 		<li><a href="../phpmyadmin/">PhpMyAdmin</a></li>
 		<li><a>Local tools</a>
 			<ul>
-				<li><a href="{$url.root_url}/pages/phpinfo.php">PHP info</a></li>
-				<li><a href="{$url.root_url}/pages/clearCookie.php">clear cookie</a></li>
-				<li><a href="{$url.root_url}/pages/clearSession.php">clear session</a></li>
+				<li><a href="{$url.root_url}/tools/phpinfo.php">PHP info</a></li>
+				<li><a href="{$url.root_url}/tools/clearCookie.php">clear cookie</a></li>
+				<li><a href="{$url.root_url}/tools/clearSession.php">clear session</a></li>
+				<li><a href="{$url.root_url}/tools/clearSession.php">check myLocal update</a></li>
 			</ul>
 		</li>
 
