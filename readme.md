@@ -1,12 +1,14 @@
 # MyLocal ![v 0.3.2](https://img.shields.io/badge/version-0.3.2_alpha-blue.svg)
 
 ## Requirements
+
 * PHP 5 -> 7
 * xampp || wampp || mampp
 * **no database required**
 
 ## Contributing Developers
-required [Compass](http://compass-style.org/) && [Gulp](https://www.npmjs.com/package/gulp-install) for any template update.
+
+Required [Compass](http://compass-style.org/) && [Gulp](https://www.npmjs.com/package/gulp-install) for any template update.
 
 * Build JS: `gulp script-concat`
 * Buils CSS: `gulp compass`
@@ -22,3 +24,8 @@ required [Compass](http://compass-style.org/) && [Gulp](https://www.npmjs.com/pa
 ## License
 
 This software is distributed under the [GNU 3.0](./license.md) license.
+
+## Thx to
+
+* @Jiedara
+* [Fugu](http://www.fugu.fr/)
