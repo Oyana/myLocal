@@ -1,5 +1,6 @@
 # ![](./templates/night2015/img/favicon/favicon-32x32.png) MyLocal 
-MyLocal is a responsive dashboard for your web development environment. Try it if you are bored of your localhost home page!
+>    MyLocal is a responsive dashboard for your web development environment.  
+>    Try it if you are bored of your localhost home page!  
 
 ## Why I should use this crap?
 1. Include a directory listing *(like every dashboard)*
@@ -7,10 +8,10 @@ MyLocal is a responsive dashboard for your web development environment. Try it i
 3. Automatic detection of Bitbucket repository link
 4. Automatic detection of SVN repository link
 5. No database requirement
-6. Work with [a lot](#build-status) of OS, development environment and PHP version. 
+6. Work with [a lot](#build-status-) of OS, development environment and PHP version. 
 7. Custom CSS & JS area
 8. it's easy to make your own myLocal template.
-9. Is made with <3 under a [public license](./license.md)
+9. Is made with  :green_heart: && :coffee: under a [public license](./license.md)
 
 ## Requirements
 
@@ -21,13 +22,11 @@ MyLocal is a responsive dashboard for your web development environment. Try it i
 
 Clone or paste myLocal foler in your web development environment (xampp, wamp or mamp) root folder (htdocs or www).
 
-**How to load it in my localhost homepage?**
+   **How to load it in my localhost homepage?**   
+   If you want to load myLocal dashboard instead of your classic environment's dashboard you can pasted `myLocal/include.php` in your root folder and renamed it to `index.php`.   
 
-If you want to load **myLocal dashboard** instead of your classic environment's dashboard you can pasted `myLocal/include.php` in your root folder and renamed it to `index.php`.
-
-**how to rename myLocal main folder?**
-
-If you want to rename myLocal main folder you need to go in `myLocal/config/defines.php`, update row 7 `define("MAIN_FOLDER_NAME", "yourFolderName");`. If you load it in your localhost homepage you also need to change path in your `/index.php` row 2.
+   **How to rename myLocal main folder?**   
+   If you want to rename myLocal main folder you need to go in `myLocal/config/defines.php`, update row 7 `define("MAIN_FOLDER_NAME", "yourFolderName");`. If you load it in your localhost homepage you also need to change path in your `/index.php` row 2.    
 
 
 ## Contributing Developers
