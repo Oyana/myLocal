@@ -18,23 +18,23 @@
 * PHP 5 -> 7
 * [xampp](https://www.apachefriends.org/index.html) || [wamp](http://www.wampserver.com/en/) || [mamp](https://www.mamp.info/en/)
 
-## How to instal?  *(auto installer coming soon!)*
+## How to install?  *(auto installer coming soon!)*
 
-Clone or paste myLocal foler in your web development environment (xampp, wamp or mamp) root folder (htdocs or www).
+Clone or paste myLocal folder in your web development environment (xampp, wamp or mamp) root folder (htdocs or www).
 
    **How to load it in my localhost homepage?**   
-   If you want to load myLocal dashboard instead of your classic environment's dashboard you can pasted `myLocal/include.php` in your root folder and renamed it to `index.php`.   
+   If you want to load myLocal dashboard instead of your classic environment's dashboard you can paste `myLocal/include.php` in your root folder and renamed it to `index.php`.   
 
    **How to rename myLocal main folder?**   
-   If you want to rename myLocal main folder you need to go in `myLocal/config/defines.php`, update row 7 `define("MAIN_FOLDER_NAME", "yourFolderName");`. If you load it in your localhost homepage you also need to change path in your `/index.php` row 2.    
+   If you want to rename myLocal main folder you need to go in `myLocal/config/defines.php`, update line 7 `define("MAIN_FOLDER_NAME", "yourFolderName");`. If you load it in your localhost homepage you also need to change path in your `/index.php` line 2.    
 
 
-## Contributing Developers
+## For Developers
 
 Required [Compass](http://compass-style.org/) && [Gulp](https://www.npmjs.com/package/gulp-install) for any template update.
 
 * Build JS: `gulp script-concat`
-* Buils CSS: `gulp compass`
+* Build CSS: `gulp compass`
 * Watch both: `gulp watch`
 
 
@@ -60,7 +60,7 @@ This software is distributed under the [GNU 3.0](./license.md) license.
 * [Jiedara](https://github.com/Jiedara)
 
 
-## Contribut
+## Contribute
 * [![fork](https://img.shields.io/badge/Code-Fork-brightgreen.svg)](https://github.com/Golgarud/myLocal/fork)
 * [![download](https://img.shields.io/badge/Code-Download-blue.svg)](https://github.com/Golgarud/myLocal/archive/master.zip)
 * [![Donate with paypal](https://img.shields.io/badge/Donate-PayPal-yellow.svg)](https://www.paypal.me/golga)
