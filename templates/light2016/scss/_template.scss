@@ -1,0 +1,213 @@
+body{
+	background-color: #EEE;
+}
+
+a{
+	@extend .block;
+	width: 100%;
+	text-decoration: none;
+	text-align: center;
+	text-transform: uppercase;
+	color: white;
+}
+
+.site-l{
+	@extend .auto-block;
+	max-width: $siteW;
+	width: 100%;
+}
+
+.site{
+	@extend .left-block;
+	width: 25%;
+	border: 3rem solid transparent;
+	opacity: 0;
+	&.loadingfade{
+		opacity: 1;
+	}
+}
+
+.loadingfade{
+	@include animation(loadingfade 1s linear 0s);
+}
+
+@include keyframes(loadingfade)
+{
+	0% {
+  		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+.axe{
+	@extend .full-block;
+}
+
+.bck-axe{
+	@extend .full-bg;
+	background-color: rgba(133,133,133,0.5);
+}
+
+#menu{
+  	visibility: hidden;
+}
+
+.site-content{
+	@extend .full-block;
+
+	@include transition( box-shadow 0.5s );
+
+	&:hover, &:focus{
+		// $hoff, $voff, $blur, $spread, $color, $inset
+		@include single-box-shadow(0, 0, 0.5rem, 0.1rem, $mainColor);
+
+		.local-link{
+			margin-top: 0%;
+		}
+
+		.git-link{
+			margin-top: -70%;
+		}
+	}
+
+	.git-link, .local-link{
+		@extend .block;
+		float: none;
+		width: 120%;
+		height: 100%;
+		line-height: 100%;
+		margin-top: 110%;
+		margin-left: -10%;
+		color: $mainColor;
+		background-color: rgba(255,255,255,0.2);
+
+		// $hoff, $voff, $blur, $spread, $color, $inset
+		@include single-box-shadow(0, 0, 1.5rem, 0, rgba(200,200,200,0.75));
+		@include transition( margin-top 0.5s, background-color 0.5s );
+
+		.ico-container{
+			@extend .absolute-block;
+			width: 3rem;
+			padding: 0.3rem;
+			bottom: 1rem;
+			right: 0;
+			left: 0;
+			margin: auto;
+			@include transition( background-color 0.5s, border-radius 0.5s );
+		}
+
+		&:hover, &:focus{
+			text-shadow: 1px 1px rgba($mainColor,0.1);
+			background-color: rgba(255,255,255,0.6);
+
+			// $hoff, $voff, $blur, $spread, $color
+			@include single-text-shadow(0.2rem, 0.2rem, 0.2rem, 0.2rem, rgba($mainColor,0.3));
+
+			.ico-container{
+				background-color: white;
+				@include border-radius(50%);
+			}
+		}
+	}
+
+	.git-link{
+		margin-top: -110%;
+	}
+}
+
+/* Custom site form */
+.site{
+	&.square{
+		.site-content{
+			/* Default */
+		}
+	}
+	&.circle .site-content{
+		@include border-radius(50%);
+	}
+	&.diamond{
+		// @include transform( rotate(-45deg) );
+	}
+}
+
+#btnMenu{
+	@extend .fixed-block;
+	left: 0;
+	top: 0;
+	width: 3.2rem;
+	padding: 1rem;
+	z-index: 9999;
+
+	.ico-container{
+		box-sizing: content-box;
+		width: 2.5rem;
+		height: 2.5rem;
+		padding: 1rem;
+		@include transition( background-color 0.5s, border-radius 0.5s );
+	}
+
+	&:hover, &:focus{
+		.ico-container{
+			background-color: white;
+			@include border-radius(50%);
+		}
+	}
+}
+
+.maj-info{
+	@extend .fixed-block;
+	bottom: 2rem;
+	right: 2rem;
+	padding-left: 2rem;
+	padding-right: 2rem;
+	padding-top: 2rem;
+	padding-bottom: 1rem;
+	background-color: #212121;
+	color: white;
+
+	@include border-radius(0.5rem);
+	@include transition( box-shadow 0.5s );
+	@include single-box-shadow(0, 0, 0.5rem, 0.1rem, $mainColor);
+
+	&:hover, &:focus{
+		@include single-box-shadow(0, 0, 0.5rem, 0.1rem, white);
+	}
+
+	a{
+		display: inline;
+		color: $mainColor;
+		&:hover, &:focus{
+			text-decoration: underline;
+		}
+	}
+	.link-container{
+		@extend .auto-block;
+		width: 8rem;
+		.dl, .git{
+			@extend .left-block;
+			height: 3.5rem;
+			width: 3.5rem;
+			padding: 0.5rem;
+			margin-top: 1rem;
+			@include transition( background-color 0.5s, border-radius 0.5s );
+
+			&:hover{
+				background-color: white;
+				@include border-radius(50%);
+			}
+		}
+		.git{
+			margin-left: 1rem;
+		}
+
+	}
+	.close{
+		position: absolute;
+		right: 0;
+		top: 0;
+		text-align: right;
+		padding: 0.5rem;
+	}
+}

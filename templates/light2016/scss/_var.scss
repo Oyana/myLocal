@@ -1,0 +1,21 @@
+$remInit:		10px;
+$font-size:		1.6rem;
+$font-name:		"Lato";
+$font-path:	 	"lato-regular-webfont";
+$main-bck:		"fond.png";
+$siteW:		95rem;
+
+$mainColor:		#CCC;
+
+
+@font-face {
+	font-family:$font-name;
+	src:	font-url( $font-path + '.eot' );
+	src:	font-url( $font-path + '.eot?#iefix' ) format( 'embedded-opentype' ),
+		font-url( $font-path + '.woff2' ) format( 'woff2' ),
+		font-url( $font-path + '.woff' ) format( 'woff' ),
+		font-url( $font-path + '.ttf' ) format( 'truetype' ),
+		font-url( $font-path + '.svg#latoregular' ) format( 'svg' );
+	font-weight: normal;
+	font-style: normal;
+}

@@ -23,7 +23,7 @@
 				<li><a href="https://www.fontsquirrel.com/tools/webfont-generator">fontsquirrel</a></li>
 			</ul>
 		</li>
-	
+
 		<li><a>RTFM</a>
 			<ul>
 				<li><a href="http://php.net/manual/">PHP</a>
