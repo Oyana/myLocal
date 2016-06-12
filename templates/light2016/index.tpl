@@ -1,30 +1,30 @@
 <ul class="site-l">
-{foreach from=$sites item=site key=key}
+{foreach from=$datas item=data key=key}
 {* circle *}
 {* square *}
 {* diamond *}
 {* hexagone *}
 {* octogone *}
 	<li class='site circle'>
-		<input class='comitKey' type='hidden' value='{$site.commitKey}' />
+		<input class='comitKey' type='hidden' value='{$data.commitKey}' />
 		<div class='site-content' >
 			<div class='rotation-axe axe'>
 				<div class='radius-axe axe'>
-					<div class='bck-axe axe' style='background-image:url("{$site.img}")'>
-						{if !empty($site.link) and !empty($site.linkType) }
-							<a class='git-link' target='_blank' href='{$site.link}' title='{$site.name} {$site.linkType}'>
+					<div class='bck-axe axe' style='background-image:url("{$data.img}")'>
+						{if !empty($data.link) and !empty($data.linkType) }
+							<a class='git-link' target='_blank' href='{$data.link}' title='{$data.name} {$data.linkType}'>
 								<div class="ico-container">
-									<i class="spLogo-{$site.linkType}"></i>
+									<i class="spLogo-{$data.linkType}"></i>
 								</div>
 							</a>
-						{elseif  !empty($site.baseUrl) and !empty($site.identifier)}
-							<a class='git-link' target='_blank' href='{$site.baseUrl}"/"{$site.identifier}' title='{$site.name} bitbucket'>
+						{elseif  !empty($data.baseUrl) and !empty($data.identifier)}
+							<a class='git-link' target='_blank' href='{$data.baseUrl}"/"{$data.identifier}' title='{$data.name} bitbucket'>
 								<div class="ico-container">
 									<i class="spLogo-bitbucket"></i>
 								</div>
 							</a>
 						{/if}
-						<a class='local-link' href='{$site.local_link}' title='{$site.name} local'>{$site.name}</a>
+						<a class='local-link' href='{$data.local_link}' title='{$data.name} local'>{$data.name}</a>
 					</div>
 				</div>
 			</div>

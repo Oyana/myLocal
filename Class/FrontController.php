@@ -244,7 +244,7 @@ class FrontController extends Controller
 				}
 			}
 		}
-		$this->smartyAssign( array('sites' => $siteList ) );
+		$this->smartyAssign( array('datas' => $siteList ) );
 	}
 
 	public function displayConfForm()
