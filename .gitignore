@@ -8,6 +8,9 @@
 /cache/.smarty-cache/*
 /cache/.smarty-compile/*
 /templates/*/node_modules/
+/templates/*
+/templates/**
+!/templates/night2015
 /config-user/*
 !/config-user/img/
 /config-user/img/*
