@@ -80,6 +80,6 @@
 				</li>
 			</ul>
 		</li>
-		<li><a href="./#conff">conffig myLocal</a></li>
+		<li><a href="./#conff">config myLocal</a></li>
 	</ul>
 </nav>

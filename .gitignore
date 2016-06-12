@@ -1,6 +1,7 @@
 # My Local #
 ############
 /screen/*
+/node_modules/
 /css/user-styles.css
 /js/user-scripts.js
 /cache/.sass-cache/*
