@@ -10,7 +10,7 @@ require_once("config_smarty.php");
 require_once(CLASS_DIR . "/Controller.php");
 require_once(CLASS_DIR . "/FrontController.php");
 
-if($configReader->getConfig()->myLocalUse = 'video'){
+if(file_exists(CLASS_DIR . "/" . ucfirst($configReader->getConfig()->myLocalUse) . "Controller.php")){
     require_once(CLASS_DIR . "/VideoController.php");
 }
 ?>
