@@ -25,20 +25,50 @@ class ConfigReader{
 	{
 		$this->mainFolderName = $mainFolderName;
 		$this->templateName = $templateName;
+		$this->configJson = false;
 		$this->configRoot();
 		$this->configJsonPath = CUSTOM_FOLD . '/config.json';
-		$this->configJson = json_decode(file_get_contents($this->configJsonPath));
-		if(!empty($this->configJson->templateName)){
-			$this->templateName = $this->configJson->templateName;
+		if ( file_exists( $this->configJsonPath ) )
+		{
+			$this->configJson = json_decode( file_get_contents( $this->configJsonPath ) );
+			if( !empty( $this->configJson->templateName ) )
+			{
+				$this->templateName = $this->configJson->templateName;
+			}
 		}
+		
 		$this->configMain();
 	}
 
-	public function getConfig($key = false){
-		if($key){
-			return $this->configJson->$key;
-		}else {
-			return $this->configJson;
+	public function getConfig($key = false)
+	{
+		if ( empty( $this->configJson ) )
+		{
+			return false;
+		}
+		else
+		{
+			if( $key && isset( $this->configJson->$key ) )
+			{
+				return $this->configJson->$key;
+			}
+			else
+			{
+				return $this->configJson;
+			}
+		}
+	}
+
+	public function getControllerName()
+	{
+		$controllerName = $this->getConfig( "myLocalUse" ); 
+		if ( !empty( $controllerName ) )
+		{
+			return ucfirst( $userConfigs->myLocalUse ) . "Controller";
+		}
+		else
+		{
+			return "FrontController";
 		}
 	}
 
@@ -126,7 +156,6 @@ class ConfigReader{
 	*/
 	public function __destruct()
 	{
-		unset($this->configJsonPath);
 		return true;
 	}
 

@@ -21,8 +21,8 @@ class VideoController extends FrontController
 		parent::__construct( $smarty );
 	}
 
-    public function getList(){
-
+	public function getList()
+	{
 		$files = scandir('./Vidéos');
 		$realpath = str_replace(array('/', '\\'),'',explode( ":",realpath('.') )[0]);
 		$siteList = array();
@@ -33,20 +33,20 @@ class VideoController extends FrontController
 				&&	$value != "."
 				&&	$value != ".."
 				&&	!is_file( $value )
-                ){
-            $siteList[$key]["name"] = $value;
-            $siteList[$key]["local_link"] = ROOT_LOCAL . $value;
-            // reset var
-            $siteList[$key]["img"] = "";
-            $siteList[$key]["baseUrl"] = "";
-            $siteList[$key]["identifier"] = "";
-            $siteList[$key]["link"] = "";
-            $siteList[$key]["linkType"] = "";
-            $siteList[$key]["img"] = $this->getBck( $siteList[$key]["name"] );
-            }
+			){
+				$siteList[$key]["name"] = $value;
+				$siteList[$key]["local_link"] = ROOT_LOCAL . $value;
+				// reset var
+				$siteList[$key]["img"] = "";
+				$siteList[$key]["baseUrl"] = "";
+				$siteList[$key]["identifier"] = "";
+				$siteList[$key]["link"] = "";
+				$siteList[$key]["linkType"] = "";
+				$siteList[$key]["img"] = $this->getBck( $siteList[$key]["name"] );
+			}
 		}
 		$this->smartyAssign( array('datas' => $siteList ) );
-    }
+	}
 
 	/**
 	 * __destruct
