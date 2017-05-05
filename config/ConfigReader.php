@@ -98,14 +98,16 @@ class ConfigReader{
 	public function configRoot()
 	{
 		$root = explode( basename($_SERVER['PHP_SELF']), $_SERVER["PHP_SELF"] );
-
 		$InFold = explode( $this->mainFolderName, $root[0] );
 		// check path
 
 		if ( !empty($this->mainFolderName) )
 		{
-			if ( isset($InFold[1]) )
+			if ( isset($InFold[1]) || $InFold[0] != "/" )
 			{
+				// mesurer la profondeur et faire un chdir en fonction...
+				// changer le repertoire lister en fonctions de cette valeur :/
+				die(count($InFold));
 				chdir("..");
 			}
 			define("ROOT_DIR", $this->mainFolderName);
