@@ -98,7 +98,6 @@ class ConfigReader{
 	public function configRoot()
 	{
 		$root = explode( basename($_SERVER['PHP_SELF']), $_SERVER["PHP_SELF"] );
-
 		$InFold = explode( $this->mainFolderName, $root[0] );
 		// check path
 
@@ -108,18 +107,40 @@ class ConfigReader{
 			{
 				chdir("..");
 			}
+			elseif( $InFold[0] != "/" )
+			{
+				$depth = "";
+				$scan = "";
+				foreach ($InFold as $key => $value)
+				{
+					$value = explode("/", $value);
+					foreach ($value as $k => $v)
+					{
+						if ( $k != 0 && !empty($v) )
+						{
+							$depth .= "../";
+							$scan .= "/" . $v;
+						}
+					}
+				}
+				define("SCAN_DIR", ".".$scan);
+				chdir($depth);
+			}
 			define("ROOT_DIR", $this->mainFolderName);
 			define("MAIN_FOLDER_NAME", $this->mainFolderName);
 			define("ROOT_LOCAL", "http://" . $_SERVER['HTTP_HOST'] . "/" );
 			define("ROOT_URL", "http://" . $_SERVER['HTTP_HOST'] . "/" . ROOT_DIR);
 		}
-		else{
+		else
+		{
 			define("ROOT_DIR",$root[0]);
 			define("ROOT_URL", "http://" . $_SERVER['HTTP_HOST'] . ROOT_DIR);
 		}
-
+		if ( !defined("SCAN_DIR") )
+		{
+			define("SCAN_DIR", "./");
+		}
 		define("URL_DOM", "http://" . $_SERVER['HTTP_HOST'] . "/" );
-
 		define("CONFIG_DIR", $this->rp(ROOT_DIR . "/config") );
 		define("CUSTOM_FOLD", $this->rp(ROOT_DIR . "/config-user") );
 		define("SHOOT_DIR", $this->rp( CUSTOM_FOLD. "/img") );

@@ -1,5 +1,4 @@
 <?php
-
 require_once(SMARTY_DIR . '/Smarty.class.php');
 
 function minify_html($tpl_output, Smarty_Internal_Template $template)

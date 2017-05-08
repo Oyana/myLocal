@@ -129,7 +129,7 @@ class FrontController extends Controller
 	 */
 	public function getList()
 	{
-		$files = scandir("./");
+		$files = scandir(SCAN_DIR);
 		$realpath = str_replace(array('/', '\\'),'',explode( ":",realpath('.') )[0]);
 		$siteList = array();
 		foreach ($files as $key => $value) 
