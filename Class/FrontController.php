@@ -159,7 +159,20 @@ class FrontController extends Controller
 				)
 			{
 				$siteList[$key]["name"] = $value;
-				$siteList[$key]["local_link"] = ROOT_LOCAL . $value;
+				if ( SCAN_DIR != "./" )
+				{
+					$siteList[$key]["local_link"] = ROOT_LOCAL . SCAN_DIR . "/" . $value;
+					$xmlfile = SCAN_DIR . "/" . $value . "/.git/sourcetreeconfig";
+					$confFile = SCAN_DIR . "/" . $value . "/.git/config";
+					$confSvn = SCAN_DIR . "/" . $value . "/.svn/";
+				}
+				else
+				{
+					$siteList[$key]["local_link"] = ROOT_LOCAL . $value;
+					$xmlfile = $value . "/.git/sourcetreeconfig";
+					$confFile = $value . "/.git/config";
+					$confSvn = $value . "/.svn/";
+				}
 				// reset var
 				$siteList[$key]["img"] = "";
 				$siteList[$key]["baseUrl"] = "";
@@ -167,10 +180,6 @@ class FrontController extends Controller
 				$siteList[$key]["link"] = "";
 				$siteList[$key]["linkType"] = "";
 				$siteList[$key]["commitKey"] = "";
-
-				$xmlfile = $value."/.git/sourcetreeconfig";
-				$confFile = $value."/.git/config";
-				$confSvn = $value."/.svn/";
 				
 				$siteList[$key]["img"] = $this->getBck( $siteList[$key]["name"] );
 				$siteList[$key]["commitKey"] = $this->getComitKey( $siteList[$key]["name"] );
@@ -205,12 +214,12 @@ class FrontController extends Controller
 					$data = nl2br($data);
 					$data = explode('\nl', $data);
 					$conff = "";
-					foreach ($data as $k => $val)
+					foreach ( $data as $k => $val )
 					{
 						$conff .= $val;
 					}
 					$conffGit = explode('<br />', $conff);
-					foreach ($conffGit as $k => $v)
+					foreach ( $conffGit as $k => $v )
 					{
 						$v = explode('=',$v);
 					
@@ -220,12 +229,20 @@ class FrontController extends Controller
 							$conffGitSplit[$v[0]] = $v[1];
 						}
 					}
-					if (!empty($conffGitSplit["url"]))
+					if ( !empty($conffGitSplit["url"]) )
 					{
 						$siteList[$key]["link"] = $conffGitSplit["url"];
+						$isSSH = explode( "@", $siteList[$key]["link"] );
+						
 						if ( isset( explode( "github", $siteList[$key]["link"] )[1] ) )
 						{
 							$siteList[$key]["linkType"] = "github";
+							if ( isset( $isSSH[1] ) )
+							{
+								$siteList[$key]["link"] = $isSSH[1];
+								$siteList[$key]["link"] = str_replace( ':', '/', $siteList[$key]["link"] );
+								$siteList[$key]["link"] = "https://" . str_replace( '.git', '', $siteList[$key]["link"] );
+							}
 						}
 						elseif ( isset( explode( "bitbucket", $siteList[$key]["link"] )[1] ) )
 						{
