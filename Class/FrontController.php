@@ -159,7 +159,14 @@ class FrontController extends Controller
 				)
 			{
 				$siteList[$key]["name"] = $value;
-				$siteList[$key]["local_link"] = ROOT_LOCAL . $value;
+				if ( SCAN_DIR != "./" )
+				{
+					$siteList[$key]["local_link"] = ROOT_LOCAL . SCAN_DIR . "/" . $value;
+				}
+				else
+				{
+					$siteList[$key]["local_link"] = ROOT_LOCAL . $value;
+				}
 				// reset var
 				$siteList[$key]["img"] = "";
 				$siteList[$key]["baseUrl"] = "";
