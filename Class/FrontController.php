@@ -232,9 +232,17 @@ class FrontController extends Controller
 					if ( !empty($conffGitSplit["url"]) )
 					{
 						$siteList[$key]["link"] = $conffGitSplit["url"];
+						$isSSH = explode( "@", $siteList[$key]["link"] );
+						
 						if ( isset( explode( "github", $siteList[$key]["link"] )[1] ) )
 						{
 							$siteList[$key]["linkType"] = "github";
+							if ( isset( $isSSH[1] ) )
+							{
+								$siteList[$key]["link"] = $isSSH[1];
+								$siteList[$key]["link"] = str_replace( ':', '/', $siteList[$key]["link"] );
+								$siteList[$key]["link"] = "https://" . str_replace( '.git', '', $siteList[$key]["link"] );
+							}
 						}
 						elseif ( isset( explode( "bitbucket", $siteList[$key]["link"] )[1] ) )
 						{
