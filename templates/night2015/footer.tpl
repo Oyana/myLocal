@@ -1,6 +1,6 @@
 </div><!-- #main -->
 
-<nav id="menu">
+<nav id="menu" style="visibility: hidden;">
 	<ul>
 		<li><a href="../phpmyadmin/">PhpMyAdmin</a></li>
 		<li><a>Local tools</a>
