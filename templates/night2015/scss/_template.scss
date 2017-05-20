@@ -1,6 +1,7 @@
 body{
-	background-image:image-url('../img/' + $main-bck);
 	background-color: #1C1C1C;
+	background-image: image-url('../img/' + $main-bck);
+	background-repeat: repeat;
 }
 
 a{
@@ -20,8 +21,8 @@ a{
 
 .site{
 	@extend .left-block;
-	width: 25%;
-	border: 3rem solid transparent;
+	width: 20%;
+	border: 2rem solid transparent;
 	opacity: 0;
 	&.loadingfade{
 		opacity: 1;
@@ -35,7 +36,7 @@ a{
 @include keyframes(loadingfade)
 {
 	0% {
-  		opacity: 0;
+		opacity: 0;
 	}
 	100% {
 		opacity: 1;
@@ -52,7 +53,7 @@ a{
 } 
 
 #menu{
-  	visibility: hidden;
+	visibility: hidden;
 }
 
 .site-content{
@@ -116,6 +117,13 @@ a{
 	.git-link{
 		margin-top: -110%;
 	}
+}
+
+.foot-link{
+	position: absolute;
+	font-size: 1.4rem;
+	margin-top: 1rem;
+	margin-top: 1rem;
 }
 
 /* Custom site form */

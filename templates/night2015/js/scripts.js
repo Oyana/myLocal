@@ -16,6 +16,10 @@ $(function(){
 	var config_allowGitScan = $("#ajaxConfig input[name=allowGitScan]").val();
 	var config_release = $("#ajaxConfig input[name=release]").val();
 	var config_path = $("#ajaxConfig input[name=path]").val();
+	var site = $("site").each(function (e)
+	{
+		return $(this).slideToggle();
+	});
 
 	function displayConff()
 	{

@@ -29,6 +29,9 @@
 				</div>
 			</div>
 		</div>
+		{if $mod.alwaysShowName}
+			<a class='local-link foot-link always-show' href='{$data.local_link}' title='{$data.name} local'>{$data.name}</a>
+		{/if}
 	</li>
 {/foreach}
 </ul>
