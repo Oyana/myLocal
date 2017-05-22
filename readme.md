@@ -15,7 +15,7 @@
 
 ## Requirements
 
-* PHP 5 -> 7
+* PHP 5.0+ (php7.1 ready)
 * [xampp](https://www.apachefriends.org/index.html) || [wamp](http://www.wampserver.com/en/) || [mamp](https://www.mamp.info/en/)
 
 ## How to install?  *(auto installer coming soon!)*

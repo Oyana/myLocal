@@ -1,0 +1,38 @@
+@media(max-width: 900px)
+{
+	.site{
+		width: 33.333%;
+		border: 1.5rem solid transparent;
+	}
+
+	#btnMenu{
+		padding: 0;
+		width: 100%;
+		background-color: white;
+	}
+
+	#btnMenu img{
+		padding: 0;
+	}
+
+	.site-l{
+		margin-top: 4.2rem;
+	}
+}
+
+@media(max-width: 680px)
+{
+	#conffZone{
+		.formControl{
+			margin-left: -5%;
+		}
+	}
+}
+
+@media(max-width: 400px)
+{
+	.site{
+		width: 50%;
+		border: 2rem solid transparent;
+	}
+}
