@@ -1,0 +1,34 @@
+#conffZone{
+	padding-top: 5rem;
+	@extend .auto-block;
+	min-height: 100vh;
+	clear: both;
+	display: none;
+	.configTitle{
+		width: 100%;
+		text-align: center;
+		font-size: 2.2rem;
+		padding-top: 1rem;
+		padding-bottom: 3rem;
+		color: $mainColor;
+	}
+	.formControl{
+		@extend .center-block;
+		max-width: 70rem;
+		width: 110%;
+		padding-top: 1%;
+		padding-left: 6%;
+		padding-right: 6%;
+		padding-bottom: 1%;
+
+		// background-color: rgba(255,255,255,0.1);
+		@include border-radius(1rem);
+
+		textarea{
+			width: 100%;
+			height: 20rem;
+			overflow: auto;
+			margin-bottom: 2rem;
+		}
+	}
+}

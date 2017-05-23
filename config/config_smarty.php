@@ -23,40 +23,40 @@ if ( $compressedFilesMod )
 }
 $configRoot = array(
 	"root_local"			=>	ROOT_LOCAL,
-	"root_url"			=>	ROOT_URL,
-	"root"				=>	ROOT_DIR,
-	"config"			=>	CONFIG_DIR,
-	"class"				=>	CLASS_DIR,
-	"smarty"			=>	SMARTY_DIR,
+	"root_url"				=>	ROOT_URL,
+	"root"					=>	ROOT_DIR,
+	"config"				=>	CONFIG_DIR,
+	"class"					=>	CLASS_DIR,
+	"smarty"				=>	SMARTY_DIR,
 	"smarty_sysplugins"		=>	SMARTY_SYSPLUGINS_DIR,
-	"smary_plugin"		=>	SMARTY_PLUGIN,
-	"cache"			=>	CACHE_DIR,
-	"cache_smarty"		=>	CACHE_SMARTY_DIR,
+	"smary_plugin"			=>	SMARTY_PLUGIN,
+	"cache"					=>	CACHE_DIR,
+	"cache_smarty"			=>	CACHE_SMARTY_DIR,
 	"cache_smarty_c"		=>	CACHE_SMARTY_COMPILE,
-	"template"			=>	TEMPLATE_DIR,
-	"img"				=>	IMG_DIR,
-	"js"				=>	JS_DIR,
-	"css"				=>	CSS_DIR,
-	"shoot"			=>	SHOOT_DIR
+	"template"				=>	TEMPLATE_DIR,
+	"img"					=>	IMG_DIR,
+	"js"					=>	JS_DIR,
+	"css"					=>	CSS_DIR,
+	"shoot"					=>	SHOOT_DIR
 );
 
 $configUrl = array(
 	"root_local"			=>	ROOT_LOCAL,
-	"root_url"			=>	ROOT_URL,
-	"root"				=>	ROOT_URL,
-	"config"			=>	URL_DOM . CONFIG_DIR,
-	"class"				=>	URL_DOM . CLASS_DIR,
-	"smarty"			=>	URL_DOM . SMARTY_DIR,
+	"root_url"				=>	ROOT_URL,
+	"root"					=>	ROOT_URL,
+	"config"				=>	URL_DOM . CONFIG_DIR,
+	"class"					=>	URL_DOM . CLASS_DIR,
+	"smarty"				=>	URL_DOM . SMARTY_DIR,
 	"smarty_sysplugins"		=>	URL_DOM . SMARTY_SYSPLUGINS_DIR,
-	"smary_plugin"		=>	URL_DOM . SMARTY_PLUGIN,
-	"cache"			=>	URL_DOM . CACHE_DIR,
-	"cache_smarty"		=>	URL_DOM . CACHE_SMARTY_DIR,
+	"smary_plugin"			=>	URL_DOM . SMARTY_PLUGIN,
+	"cache"					=>	URL_DOM . CACHE_DIR,
+	"cache_smarty"			=>	URL_DOM . CACHE_SMARTY_DIR,
 	"cache_smarty_c"		=>	URL_DOM . CACHE_SMARTY_COMPILE,
-	"template"			=>	URL_DOM . TEMPLATE_DIR,
-	"img"				=>	URL_DOM . IMG_DIR,
-	"js"				=>	URL_DOM . JS_DIR,
-	"css"				=>	URL_DOM . CSS_DIR,
-	"shoot"			=>	URL_DOM . SHOOT_DIR
+	"template"				=>	URL_DOM . TEMPLATE_DIR,
+	"img"					=>	URL_DOM . IMG_DIR,
+	"js"					=>	URL_DOM . JS_DIR,
+	"css"					=>	URL_DOM . CSS_DIR,
+	"shoot"					=>	URL_DOM . SHOOT_DIR
 );
 
 $configMod = array(
@@ -64,7 +64,8 @@ $configMod = array(
 	"allowUpdate"		=>	$updateScan,
 	"allowGitScan"		=>	$repoScan,
 	"release"			=>	$myLocalRelease,
-	"compressed_files"		=>	$compressedFilesMod,
+	"alwaysShowName"	=>	$alwaysShowName,
+	"compressed_files"	=>	$compressedFilesMod,
 	"path"				=>	ROOT_URL
 );
 $smarty->assign("url", $configUrl);

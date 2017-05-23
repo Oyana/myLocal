@@ -27,7 +27,7 @@ class ConfigReader{
 		$this->templateName = $templateName;
 		$this->configJson = false;
 		$this->configRoot();
-		$this->configJsonPath = CUSTOM_FOLD . '/config.json';
+		$this->configJsonPath = CUSTOM_FOLD . '/config-user.json';
 		if ( file_exists( $this->configJsonPath ) )
 		{
 			$this->configJson = json_decode( file_get_contents( $this->configJsonPath ) );
@@ -36,32 +36,30 @@ class ConfigReader{
 				$this->templateName = $this->configJson->templateName;
 			}
 		}
-		
+
 		$this->configMain();
 	}
 
 	public function getConfig($key = false)
 	{
-		if ( empty( $this->configJson ) )
+		if( !empty( $this->configJson ) && $key && isset( $this->configJson->$key ) )
 		{
-			return false;
+			return $this->configJson->$key;
+		}
+		elseif( !$key )
+		{
+			return $this->configJson;
 		}
 		else
 		{
-			if( $key && isset( $this->configJson->$key ) )
-			{
-				return $this->configJson->$key;
-			}
-			else
-			{
-				return $this->configJson;
-			}
+			return false;
 		}
 	}
 
 	public function getControllerName()
 	{
-		$controllerName = $this->getConfig( "myLocalUse" ); 
+		$controllerName = $this->getConfig( "myLocalUse" );
+
 		if ( !empty( $controllerName ) )
 		{
 			return ucfirst( $userConfigs->myLocalUse ) . "Controller";

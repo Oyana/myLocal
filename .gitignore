@@ -10,7 +10,7 @@
 /templates/*/node_modules/
 /templates/*
 /templates/**
-!/templates/night2015
+!/templates/classic2017
 /config-user/*
 !/config-user/img/
 /config-user/img/*
