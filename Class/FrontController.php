@@ -83,6 +83,10 @@ class FrontController extends Controller
 		{
 			$customData["js"] = file_get_contents(CUSTOM_FOLD . "/custom-user.js");
 		}
+		if ( file_exists( CUSTOM_FOLD . "/config-user.json" ) )
+		{
+			$customData["json"] = file_get_contents(CUSTOM_FOLD . "/config-user.json");
+		}
 		
 		$this->userConfig = $customData;
 		return $this->userConfig;
@@ -312,6 +316,12 @@ class FrontController extends Controller
 
 	public function submitConfig()
 	{
+		$myfile = fopen( CUSTOM_FOLD . "/config-user.json", "w" ) or die("Unable to open config json file! <br/> please check that you have granted your PHP file access ( " . ROOT_DIR . "/config-user/custom-user.css )");
+		
+		$txt = $_POST['customJSON'];
+		fwrite($myfile, $txt);
+		fclose($myfile);
+
 		$myfile = fopen( CUSTOM_FOLD . "/custom-user.css", "w" ) or die("Unable to open custom css file! <br/> please check that you have granted your PHP file access ( " . ROOT_DIR . "/config-user/custom-user.css )");
 		
 		$txt = $_POST['customCSS'];
