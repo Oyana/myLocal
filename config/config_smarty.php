@@ -66,6 +66,8 @@ $configMod = array(
 	"release"			=>	$myLocalRelease,
 	"alwaysShowName"	=>	$alwaysShowName,
 	"compressed_files"	=>	$compressedFilesMod,
+	"yourSettingsTxt"	=>	$yourSettingsTxt,
+	"userConfigs"		=>	$userConfigs,
 	"path"				=>	ROOT_URL
 );
 $smarty->assign("url", $configUrl);

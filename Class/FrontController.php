@@ -95,12 +95,12 @@ class FrontController extends Controller
 	 * @param array
 	 * @return boolean
 	 */
-	public function displayTpl( $templateList )
+	public function displayTpl( $templateList, $repoScan = true )
 	{
 		$this->templateList = $templateList;
 		if (empty($_POST["method"]))
 		{
-			$this->getList();
+			$this->getList( $repoScan );
 			$this->smartyDisplay($templateList);
 		}
 		else
@@ -127,7 +127,7 @@ class FrontController extends Controller
 	 * @since 0.2
 	 * @return void
 	 */
-	public function getList()
+	public function getList( $repoScan = true )
 	{
 		$files = scandir(SCAN_DIR);
 		$realpath = str_replace(array('/', '\\'),'',explode( ":",realpath('.') )[0]);
@@ -205,7 +205,7 @@ class FrontController extends Controller
 				}
 			
 				// could cause error login if clone by url
-				if( file_exists($confFile) && empty($identifier) )
+				if( file_exists($confFile) && empty($identifier) && $repoScan )
 				{
 					$fp = fopen($confFile, 'r');
 					$data = fread($fp, 4096);

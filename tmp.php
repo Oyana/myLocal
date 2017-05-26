@@ -1,4 +1,5 @@
 <?php
+die("test auto updater");
 function rrmdir($dir)
 {
 	if (is_dir($dir))

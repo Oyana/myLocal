@@ -36,11 +36,10 @@ class ConfigReader{
 				$this->templateName = $this->configJson->templateName;
 			}
 		}
-
 		$this->configMain();
 	}
 
-	public function getConfig($key = false)
+	public function getConfig( $key = false )
 	{
 		if( !empty( $this->configJson ) && $key && isset( $this->configJson->$key ) )
 		{
