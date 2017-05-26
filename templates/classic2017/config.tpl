@@ -1,6 +1,12 @@
 <form class="formControl" enctype="" method="post">
 	<fieldset>
 		<legend class="configTitle"> Config Your Local </legend>
+		{if isset($mod.yourSettingsTxt) }
+		<p class="config-detail">
+			<span class="title">Your actual configuration:</span>
+			{$mod.yourSettingsTxt}
+		</p>
+		{/if}
 		<textarea name="customJSON" placeholder="custom config (JSON)">
 		{if isset($userConfig.json) }
 			{$userConfig.json}

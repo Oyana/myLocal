@@ -4,7 +4,7 @@ require_once('ConfigReader.php');
 //init config reader
 $configReader = new ConfigReader($mainFolderName , $templateName);
 $userConfigs = $configReader->getConfig();
-
+$yourSettingsTxt = "";
 //so beautifull code <3
 if ( $userConfigs )
 {
@@ -13,7 +13,7 @@ if ( $userConfigs )
 		if( !empty( $$configName ) )
 		{
 			$$configName = $configReader->getConfig($configName);
-			$yourSettingsTxt = $configName . " :  " . $$configName . "<br />";
+			$yourSettingsTxt .= $configName . " :  " . $$configName . "<br />";
 		}
 	}
 }
