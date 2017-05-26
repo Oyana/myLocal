@@ -30,12 +30,12 @@ $(function(){
 	)
 	{
 
-		hashchangeFunction();
+		hashchangeFunction( url );
 	}
 	// hashchange detection (#pseudoElem)
 	$(window).on('hashchange', function(e)
 	{
-		hashchangeFunction();
+		hashchangeFunction( url );
 	});
 
 	// on reload done

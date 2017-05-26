@@ -14,7 +14,7 @@ function displayConff()
 	});
 }
 
-function cleanTag()
+function cleanTag( url )
 {
 	window.history.pushState("","", url.split("#")[0]);
 }
@@ -84,7 +84,7 @@ function displayPopUpMaj( data )
 	return html;
 }
 
-function hashchangeFunction()
+function hashchangeFunction( url )
 {
 	tag = window.location.href.split("#")[1];
 	window.history.replaceState(null, null, url);
@@ -105,5 +105,4 @@ function hashchangeFunction()
 			console.log( "unknow " + tag + " hashange on script.js");
 		break;
 	}
-
 }
