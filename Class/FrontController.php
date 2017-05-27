@@ -83,6 +83,10 @@ class FrontController extends Controller
 		{
 			$customData["js"] = file_get_contents(CUSTOM_FOLD . "/custom-user.js");
 		}
+		if ( file_exists( CUSTOM_FOLD . "/config-user.json" ) )
+		{
+			$customData["json"] = file_get_contents(CUSTOM_FOLD . "/config-user.json");
+		}
 		
 		$this->userConfig = $customData;
 		return $this->userConfig;
@@ -95,12 +99,12 @@ class FrontController extends Controller
 	 * @param array
 	 * @return boolean
 	 */
-	public function displayTpl( $templateList )
+	public function displayTpl( $templateList, $repoScan = true, $allowParentLink = false )
 	{
 		$this->templateList = $templateList;
 		if (empty($_POST["method"]))
 		{
-			$this->getList();
+			$this->getList( $repoScan, $allowParentLink );
 			$this->smartyDisplay($templateList);
 		}
 		else
@@ -122,12 +126,12 @@ class FrontController extends Controller
 	}
 
 	/**
-	 * displayTpl
+	 * getList
 	 * @author Golga
 	 * @since 0.2
 	 * @return void
 	 */
-	public function getList()
+	public function getList( $repoScan = true, $allowParentLink = false )
 	{
 		$files = scandir(SCAN_DIR);
 		$realpath = str_replace(array('/', '\\'),'',explode( ":",realpath('.') )[0]);
@@ -137,7 +141,7 @@ class FrontController extends Controller
 			if (
 					isset( $value )
 				&&	$value != "."
-				&&	$value != ".."
+				&&	( $value != ".." || $allowParentLink )
 				&&	!is_file( $value )
 				&&	$value != MAIN_FOLDER_NAME
 				&&	$value != "xampp"
@@ -205,7 +209,7 @@ class FrontController extends Controller
 				}
 			
 				// could cause error login if clone by url
-				if( file_exists($confFile) && empty($identifier) )
+				if( file_exists($confFile) && empty($identifier) && $repoScan )
 				{
 					$fp = fopen($confFile, 'r');
 					$data = fread($fp, 4096);
@@ -312,6 +316,12 @@ class FrontController extends Controller
 
 	public function submitConfig()
 	{
+		$myfile = fopen( CUSTOM_FOLD . "/config-user.json", "w" ) or die("Unable to open config json file! <br/> please check that you have granted your PHP file access ( " . ROOT_DIR . "/config-user/custom-user.css )");
+		
+		$txt = $_POST['customJSON'];
+		fwrite($myfile, $txt);
+		fclose($myfile);
+
 		$myfile = fopen( CUSTOM_FOLD . "/custom-user.css", "w" ) or die("Unable to open custom css file! <br/> please check that you have granted your PHP file access ( " . ROOT_DIR . "/config-user/custom-user.css )");
 		
 		$txt = $_POST['customCSS'];

@@ -12,6 +12,18 @@
 		padding-bottom: 3rem;
 		color: $mainColor;
 	}
+	.config-detail{
+		font-size: 1.9rem;
+		margin-bottom: 2rem;
+		color: $mainColor;
+		.title{
+			display: block;
+			width: 100%;
+			text-align: center;
+			padding-bottom: 1rem;
+			font-weight: bold;
+		}
+	}
 	.formControl{
 		@extend .center-block;
 		max-width: 70rem;

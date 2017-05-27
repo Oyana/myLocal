@@ -14,7 +14,7 @@ function displayConff()
 	});
 }
 
-function cleanTag()
+function cleanTag( url )
 {
 	window.history.pushState("","", url.split("#")[0]);
 }
@@ -74,17 +74,17 @@ function displayPopUpMaj( data )
 	var html =	"<div class='maj-info'>" +
 				"<a class='close' href='#closeMaj' >x</a>" +
 				"<span> MyLocal " + 
-				"<a title='View release on GitHub' href='" + data.html_url  + "' >" + data.tag_name + "</a>" +
+				"<a title='View release on GitHub' href='" + data.html_url + "' >" + data.tag_name + "</a>" +
 				" is now available! </span>" +
 				"<span class='link-container'>" +
-					"<a class='dl' title='Download zip' href='" + config_path + "/tools/updateCore.php?release=" + data.tag_name + "' ><i class='spLogo-zip'></i></a>" +
-					"<a class='git' title='View on GitHub' href='https://github.com/Golgarud/myLocal' ><i class='spLogo-github'></i></a>" +
+					"<a class='dl' title='Download zip' href='" + data.zipball_url  + "' ><i class='spLogo-zip'></i></a>" +
+					"<a class='git' title='View on GitHub' href='" + data.html_url  + "' ><i class='spLogo-github'></i></a>" +
 				"</span>" +
 			"</div>";
 	return html;
 }
 
-function hashchangeFunction()
+function hashchangeFunction( url )
 {
 	tag = window.location.href.split("#")[1];
 	window.history.replaceState(null, null, url);
@@ -105,5 +105,4 @@ function hashchangeFunction()
 			console.log( "unknow " + tag + " hashange on script.js");
 		break;
 	}
-
 }
