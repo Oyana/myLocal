@@ -53,6 +53,8 @@ $(function(){
 			url: "https://api.github.com/repos/Golgarud/myLocal/releases/latest"
 		}).done(function( data ) 
 		{
+			console.log( data);
+			console.log( parseFloat(config_release) +"<"+  parseFloat(data.tag_name) );
 			// alert(data[0]["sha"]);
 			$("html").append( data );
 			// ignore fix release (0.0.x) in test for displaying popup
