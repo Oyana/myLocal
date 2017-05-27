@@ -99,12 +99,12 @@ class FrontController extends Controller
 	 * @param array
 	 * @return boolean
 	 */
-	public function displayTpl( $templateList, $repoScan = true )
+	public function displayTpl( $templateList, $repoScan = true, $allowParentLink = false )
 	{
 		$this->templateList = $templateList;
 		if (empty($_POST["method"]))
 		{
-			$this->getList( $repoScan );
+			$this->getList( $repoScan, $allowParentLink );
 			$this->smartyDisplay($templateList);
 		}
 		else
@@ -126,12 +126,12 @@ class FrontController extends Controller
 	}
 
 	/**
-	 * displayTpl
+	 * getList
 	 * @author Golga
 	 * @since 0.2
 	 * @return void
 	 */
-	public function getList( $repoScan = true )
+	public function getList( $repoScan = true, $allowParentLink = false )
 	{
 		$files = scandir(SCAN_DIR);
 		$realpath = str_replace(array('/', '\\'),'',explode( ":",realpath('.') )[0]);
@@ -141,7 +141,7 @@ class FrontController extends Controller
 			if (
 					isset( $value )
 				&&	$value != "."
-				&&	$value != ".."
+				&&	( $value != ".." || $allowParentLink )
 				&&	!is_file( $value )
 				&&	$value != MAIN_FOLDER_NAME
 				&&	$value != "xampp"

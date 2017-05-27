@@ -1,4 +1,8 @@
 <?php
+function ddd( $value = false )
+{
+	die( nl2br( print_r( $value, true ) ) );
+}
 require_once("defines.php");
 require_once('ConfigReader.php');
 //init config reader
@@ -10,7 +14,7 @@ if ( $userConfigs )
 {
 	foreach( $userConfigs as $configName => $userConfig )
 	{
-		if( !empty( $$configName ) )
+		if( isset( $$configName ) )
 		{
 			$$configName = $configReader->getConfig($configName);
 			$yourSettingsTxt .= $configName . " :  " . $$configName . "<br />";

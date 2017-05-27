@@ -14,5 +14,5 @@ else
 	echo 'The `myLocalUse` in your config.json is incorrect';
 }
 $FC->catchGlobData();
-$FC->displayTpl( $templateList, $repoScan );
+$FC->displayTpl( $templateList, $repoScan, $allowParentLink );
 ?>
