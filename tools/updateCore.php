@@ -1,4 +1,5 @@
 <?php
+die("test auto updater (Not ready yet)");
 error_reporting(E_ALL);
 function recurse_delete( $dirPath )
 {

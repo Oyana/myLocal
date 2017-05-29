@@ -38,14 +38,15 @@ Required [Compass](http://compass-style.org/) && [Gulp](https://www.npmjs.com/pa
 * Watch both: `gulp watch`
 
 
-## Build status ![v 0.3.2](https://img.shields.io/badge/version-0.3.2_alpha-blue.svg)
+## Build status ![v 0.4.2](https://img.shields.io/badge/version-0.4.2_alpha-blue.svg)
 
 | Linux | Windows | Mac | PHP |
 |:------:|:----------:|:----:|:----:|
 | ![xampp ok](https://img.shields.io/badge/XAMPP_Build-passing-brightgreen.svg) | ![xampp ok](https://img.shields.io/badge/XAMPP_Build-passing-brightgreen.svg) |  ![xampp ok](https://img.shields.io/badge/XAMPP_Build-passing-brightgreen.svg) | ![PHP 5.3 ok](https://img.shields.io/badge/5.3-passing-brightgreen.svg) |
 | | ![wampp ok](https://img.shields.io/badge/WAMPP_Build-passing-brightgreen.svg) | ![mampp ok](https://img.shields.io/badge/MAMPP_Build-passing-brightgreen.svg) | ![PHP 5.5 ok](https://img.shields.io/badge/5.5-passing-brightgreen.svg) |
 || | | ![PHP 5.6 ok](https://img.shields.io/badge/5.6-passing-brightgreen.svg) |
-|| | | ![PHP 7.0 ok](https://img.shields.io/badge/7.0-passing-brightgreen.svg) |
+|| | | ![PHP 7.0 ok](https://img.shields.io/badge/7.0-passing-brightgreen.svg) 
+|| | | ![PHP 7.1 ok](https://img.shields.io/badge/7.1-passing-brightgreen.svg) |
 
 
 ## License
