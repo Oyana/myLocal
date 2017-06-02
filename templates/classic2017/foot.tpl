@@ -1,10 +1,11 @@
 		<div id="conffZone">	
 		</div>
-		<script src="{$url.js}/main.min.js" type="text/javascript" charset="utf-8" async="async"></script>
-		{if isset($userConfig.js) }
-			<script type="text/javascript">
+		{* <script src="{$url.js}/main.min.js" type="text/javascript" charset="utf-8" async="async"></script> *}
+		<script type="text/javascript" charset="utf-8" async="async">
+			{fetch file=$url.js|cat:"/main.min.js"}
+			{if isset($userConfig.js) }
 				{$userConfig.js}
-			</script>
-		{/if}
+			{/if}
+		</script>
 	</body>
 </html>
