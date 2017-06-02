@@ -16,14 +16,14 @@ class VideoController extends FrontController
 	 * @since 0.4
 	 * @return boolean
 	 */
-	public function __construct( $smarty )
+	public function __construct( $smarty, $yourSettingsTxt )
 	{
-		parent::__construct( $smarty );
+		parent::__construct( $smarty, $yourSettingsTxt );
 	}
 
-	public function getList()
+	public function getList( $repoScan = true, $allowParentLink = false )
 	{
-		$files = scandir('./Vidéos');
+		$files = scandir(SCAN_DIR);
 		$realpath = str_replace(array('/', '\\'),'',explode( ":",realpath('.') )[0]);
 		$siteList = array();
 		foreach ($files as $key => $value)
@@ -45,6 +45,7 @@ class VideoController extends FrontController
 				$siteList[$key]["img"] = $this->getBck( $siteList[$key]["name"] );
 			}
 		}
+		// die(print_r($siteList));
 		$this->smartyAssign( array('datas' => $siteList ) );
 	}
 

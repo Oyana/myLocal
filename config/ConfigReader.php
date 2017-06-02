@@ -61,7 +61,7 @@ class ConfigReader{
 
 		if ( !empty( $controllerName ) )
 		{
-			return ucfirst( $userConfigs->myLocalUse ) . "Controller";
+			return ucfirst( $controllerName ) . "Controller";
 		}
 		else
 		{

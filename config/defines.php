@@ -2,7 +2,7 @@
 $myLocalRelease = '0.4.0';
 $devMod = false;
 $compressedFilesMod = true;
-$cachesFilesMod = false;
+$cachesFilesMod = true;
 $checkCompilation = true;
 $mainFolderName = "myLocal";
 $templateName = 'classic2017';

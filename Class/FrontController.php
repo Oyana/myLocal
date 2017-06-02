@@ -9,6 +9,7 @@ class FrontController extends Controller
 {
 	private $templateList;
 	private $userConfig;
+	private $cacheID;
 	
 	/**
 	 * __construct moduleController
@@ -16,8 +17,9 @@ class FrontController extends Controller
 	 * @since 0.2
 	 * @return boolean
 	 */
-	public function __construct( $smarty )
+	public function __construct( $smarty, $yourSettingsTxt )
 	{
+		$this->cacheID = sha1( $yourSettingsTxt );
 		parent::__construct( $smarty );
 	}
 
@@ -105,7 +107,7 @@ class FrontController extends Controller
 		if (empty($_POST["method"]))
 		{
 			$this->getList( $repoScan, $allowParentLink );
-			$this->smartyDisplay($templateList);
+			$this->smartyDisplay( $templateList, sha1( $this->cacheID ) );
 		}
 		else
 		{
@@ -138,6 +140,7 @@ class FrontController extends Controller
 		$siteList = array();
 		foreach ($files as $key => $value) 
 		{
+			$this->cacheID .= $value;
 			if (
 					isset( $value )
 				&&	$value != "."
