@@ -1,10 +1,10 @@
 <ul class="site-l">
 {foreach from=$datas item=data key=key}
-{* circle *}
-{* square *}
-{* diamond *}
-{* hexagone *}
-{* octogone *}
+	{* circle *}
+	{* square *}
+	{* diamond *}
+	{* hexagone *}
+	{* octogone *}
 	<li class='site circle {if $data.name == ".."}backlink{/if}'>
 		<input class='comitKey' type='hidden' value='{$data.commitKey}' />
 		<div class='site-content' >

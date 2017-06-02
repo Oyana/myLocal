@@ -10,5 +10,5 @@ $updateScan = 1;
 $repoScan = 1;
 $alwaysShowName = 1;
 $allowParentLink = 0;
-$templateList = array( "head", "header", "index", "footer", "foot");
+$templateList = array( "main" );
 ?>
