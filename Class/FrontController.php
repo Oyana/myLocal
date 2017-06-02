@@ -34,7 +34,7 @@ class FrontController extends Controller
 	public function __destruct()
 	{
 		parent::__destruct();
-		unset($this->templateList);
+		unset( $this->templateList );
 		return true; 
 	}
 
@@ -120,8 +120,7 @@ class FrontController extends Controller
 					$this->submitConfig();
 					break;
 				default:
-					echo "Error: undefined method: " . $_POST["method"] . " in FrontController!";
-					die();
+					throw new Exception("Error: undefined method: " . $_POST["method"] . " in FrontController!", 1);
 					break;
 			}
 		}
