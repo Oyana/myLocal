@@ -32,6 +32,7 @@
 			{$userConfig.js}
 		{/if}
 		</textarea>
+		<a class="btn" href="{$url.root_url}/tools/clearMyLocalCache.php">clear myLocal cache</a>
 		<button name="method" value="submitConfig">Submit</button>
 	</fieldset>
 </form>
