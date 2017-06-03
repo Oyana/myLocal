@@ -9,6 +9,7 @@ class FrontController extends Controller
 {
 	private $templateList;
 	private $userConfig;
+	private $configID;
 	private $cacheID;
 	
 	/**
@@ -19,7 +20,8 @@ class FrontController extends Controller
 	 */
 	public function __construct( $smarty, $yourSettingsTxt )
 	{
-		$this->cacheID = sha1( $yourSettingsTxt );
+		$this->configID = sha1( $yourSettingsTxt );
+		$this->cacheID = $this->configID;
 		parent::__construct( $smarty );
 	}
 
@@ -272,7 +274,7 @@ class FrontController extends Controller
 
 	public function displayConfForm()
 	{
-		$this->smartyDisplay( "config" );
+		$this->smartyDisplay( "config", $this->configID );
 	}
 
 	public function getBck( $siteName )

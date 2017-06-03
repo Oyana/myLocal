@@ -1,12 +1,3 @@
-<!-- ajax config -->
-<form id="ajaxConfig">
-	<input type='hidden' name='dev' value='{$mod.dev}' />
-	<input type='hidden' name='allowUpdate' value='{$mod.allowUpdate}' />
-	<input type='hidden' name='allowGitScan' value='{$mod.allowGitScan}' />
-	<input type='hidden' name='release' value='{$mod.release}' />
-	<input type='hidden' name='path' value='{$mod.path}' />
-</form>
-<!-- ajax config end-->
 <form class="formControl" enctype="" method="post">
 	<fieldset>
 		<legend class="configTitle"> Config Your Local </legend>

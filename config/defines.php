@@ -1,9 +1,9 @@
 <?php
 $myLocalRelease = '0.4.1';
 $devMod = false;
-$compressedFilesMod = true;
-$cachesFilesMod = true;
-$checkCompilation = false;
+$compressedFilesMod = 1;
+$cachesFilesMod = 1;
+$checkCompilation = 1;
 $mainFolderName = "myLocal";
 $templateName = 'classic2017';
 $updateScan = 1;
