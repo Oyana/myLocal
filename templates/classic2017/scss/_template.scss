@@ -1,6 +1,6 @@
 body{
 	background-color: #1C1C1C;
-	background-image: image-url('../img/' + $main-bck);
+	background-image: url( $main-bck );
 	background-repeat: repeat;
 }
 
@@ -26,6 +26,9 @@ a{
 	opacity: 0;
 	&.loadingfade{
 		opacity: 0;
+	}
+	&.backlink{
+		background-color: white;
 	}
 }
 

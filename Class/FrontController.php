@@ -9,6 +9,8 @@ class FrontController extends Controller
 {
 	private $templateList;
 	private $userConfig;
+	private $configID;
+	private $cacheID;
 	
 	/**
 	 * __construct moduleController
@@ -16,8 +18,10 @@ class FrontController extends Controller
 	 * @since 0.2
 	 * @return boolean
 	 */
-	public function __construct( $smarty )
+	public function __construct( $smarty, $yourSettingsTxt )
 	{
+		$this->configID = sha1( $yourSettingsTxt );
+		$this->cacheID = $this->configID;
 		parent::__construct( $smarty );
 	}
 
@@ -32,7 +36,7 @@ class FrontController extends Controller
 	public function __destruct()
 	{
 		parent::__destruct();
-		unset($this->templateList);
+		unset( $this->templateList );
 		return true; 
 	}
 
@@ -105,7 +109,7 @@ class FrontController extends Controller
 		if (empty($_POST["method"]))
 		{
 			$this->getList( $repoScan, $allowParentLink );
-			$this->smartyDisplay($templateList);
+			$this->smartyDisplay( $templateList, sha1( $this->cacheID ) );
 		}
 		else
 		{
@@ -118,8 +122,7 @@ class FrontController extends Controller
 					$this->submitConfig();
 					break;
 				default:
-					echo "Error: undefined method: " . $_POST["method"] . " in FrontController!";
-					die();
+					throw new Exception("Error: undefined method: " . $_POST["method"] . " in FrontController!", 1);
 					break;
 			}
 		}
@@ -138,6 +141,7 @@ class FrontController extends Controller
 		$siteList = array();
 		foreach ($files as $key => $value) 
 		{
+			$this->cacheID .= $value;
 			if (
 					isset( $value )
 				&&	$value != "."
@@ -270,7 +274,7 @@ class FrontController extends Controller
 
 	public function displayConfForm()
 	{
-		$this->smartyDisplay( "config" );
+		$this->smartyDisplay( "config", $this->configID );
 	}
 
 	public function getBck( $siteName )

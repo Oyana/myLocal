@@ -67,18 +67,32 @@ class Controller
 	 * @since 0.2
 	 * @param	array	$data
 	 */
-	public function smartyDisplay( $data )
+	public function smartyDisplay( $data, $cacheID = false )
 	{
 		if ( is_array($data) )
 		{
 			foreach ($data as $key => $value)
 			{
-				$this->smarty->display( $value . TEMPLATE_EXT );
+				if ( $cacheID )
+				{
+					$this->smarty->display( $value . TEMPLATE_EXT, $cacheID );
+				}
+				else
+				{
+					$this->smarty->display( $value . TEMPLATE_EXT );
+				}
 			}
 		}
 		else
 		{
-			$this->smarty->display( $data . TEMPLATE_EXT );
+			if ( $cacheID )
+			{
+				$this->smarty->display( $data . TEMPLATE_EXT, $cacheID );
+			}
+			else
+			{
+				$this->smarty->display( $data . TEMPLATE_EXT );
+			}
 		}
 		return true; 
 	}
