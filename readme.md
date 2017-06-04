@@ -18,7 +18,7 @@
 * PHP 5.0+ (php7.1 ready)
 * [xampp](https://www.apachefriends.org/index.html) || [wamp](http://www.wampserver.com/en/) || [mamp](https://www.mamp.info/en/)
 
-## How to install?  *(auto installer coming soon!)*
+## How to install?
 
 Clone or paste myLocal folder in your web development environment (xampp, wamp or mamp) root folder (htdocs or www).
 
@@ -26,7 +26,7 @@ Clone or paste myLocal folder in your web development environment (xampp, wamp o
    If you want to load myLocal dashboard instead of your classic environment's dashboard you can paste `myLocal/include.php` in your root folder and renamed it to `index.php`.   
 
    **How to rename myLocal main folder?**   
-   If you want to rename myLocal main folder you need to go in `myLocal/config/defines.php`, update line 7 `define("MAIN_FOLDER_NAME", "yourFolderName");`. If you load it in your localhost homepage you also need to change path in your `/index.php` line 2.    
+   If you want to rename myLocal main folder you need to go in `myLocal/config/defines.php`, update line 7 `$mainFolderName = "YourFolderName";`. If you load it in your localhost homepage you also need to change path in your `/index.php` line 2.    
 
 
 ## For Developers
@@ -34,7 +34,7 @@ Clone or paste myLocal folder in your web development environment (xampp, wamp o
 Required [Compass](http://compass-style.org/) && [Gulp](https://www.npmjs.com/package/gulp-install) for any template update.
 
 * Build JS: `gulp script-concat`
-* Build CSS: `gulp compass`
+* Build CSS: `gulp compass` (deprecated will be removed in 5.0)
 * Watch both: `gulp watch`
 
 
@@ -43,8 +43,10 @@ Required [Compass](http://compass-style.org/) && [Gulp](https://www.npmjs.com/pa
 | Linux | Windows | Mac | PHP |
 |:------:|:----------:|:----:|:----:|
 | ![xampp ok](https://img.shields.io/badge/XAMPP_Build-passing-brightgreen.svg) | ![xampp ok](https://img.shields.io/badge/XAMPP_Build-passing-brightgreen.svg) |  ![xampp ok](https://img.shields.io/badge/XAMPP_Build-passing-brightgreen.svg) | ![PHP 5.3 ok](https://img.shields.io/badge/5.3-passing-brightgreen.svg) |
-| | ![wampp ok](https://img.shields.io/badge/WAMPP_Build-passing-brightgreen.svg) | ![mampp ok](https://img.shields.io/badge/MAMPP_Build-passing-brightgreen.svg) | ![PHP 5.5 ok](https://img.shields.io/badge/5.5-passing-brightgreen.svg) |
+| | ![wampp ok](https://img.shields.io/badge/WAMPP_Build-passing-brightgreen.svg) | ![mampp ok](https://img.shields.io/badge/MAMPP_Build-passing-brightgreen.svg) | ![PHP 5.4 ok](https://img.shields.io/badge/5.4-passing-brightgreen.svg) |
+|| | | ![PHP 5.5 ok](https://img.shields.io/badge/5.5-passing-brightgreen.svg) |
 || | | ![PHP 5.6 ok](https://img.shields.io/badge/5.6-passing-brightgreen.svg) |
+|| | | ![PHP 6.0 unknow](https://img.shields.io/badge/6.0-unkow-silver.svg) |
 || | | ![PHP 7.0 ok](https://img.shields.io/badge/7.0-passing-brightgreen.svg) 
 || | | ![PHP 7.1 ok](https://img.shields.io/badge/7.1-passing-brightgreen.svg) |
 
