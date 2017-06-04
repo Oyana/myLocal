@@ -8,7 +8,7 @@
 ## 0.5.0 *Frendly image*
 * [ ] Image uploader.
 * [ ] Image lasyloader.
-* [ ] Custom controller.
+* [x] Custom controller.
 * [ ] Readme enhancment.
 
 ## 0.6.0 *Gitlab suport*

@@ -2,10 +2,9 @@
 include "config/config_include.php";
 
 //get the good controller
-$controllername = $configReader->getControllerName();
-if( class_exists($controllername) )
+if( !$reqError )
 {
-	$FC = new $controllername( $smarty, $yourSettingsTxt );
+	$FC = new $ControllerName( $smarty, $yourSettingsTxt );
 }
 //if any error, we call the frontController with an error msg
 else

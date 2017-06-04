@@ -147,6 +147,7 @@ class ConfigReader{
 	{
 		// class
 		define("CLASS_DIR", $this->rp( ROOT_DIR . "/Class" ) );
+		define("CLASS_OVERRIDE", $this->rp( ROOT_DIR . "/config-user/Controller" ) );
 		define("SMARTY_DIR", CLASS_DIR . "/Smarty");
 		define("SMARTY_SYSPLUGINS_DIR", SMARTY_DIR . "/sysplugins/");//END slashess used in smarty class
 		define("SMARTY_PLUGIN", SMARTY_DIR . "/plugins/");//END slashess used in smarty class
