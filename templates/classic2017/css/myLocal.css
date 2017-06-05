@@ -1924,6 +1924,11 @@ a {
 .site-l {
   max-width: 95rem;
   width: 100%; }
+  .site-l .imgUpl {
+    display: none;
+    overflow: hidden;
+    width: 100%;
+    margin-top: 0.5rem; }
 
 .site {
   width: 20%;
