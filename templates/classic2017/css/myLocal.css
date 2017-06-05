@@ -1780,7 +1780,7 @@ i {
   position: relative;
   display: block; }
 
-.absolute-block, .auto-abs-block, .svg-dotted, .abstractElem, .site-content .git-link .ico-container, .site-content .local-link .ico-container {
+.absolute-block, .auto-abs-block, .site.backlink .bck-axe:after, .svg-dotted, .abstractElem, .site-content .git-link .ico-container, .site-content .local-link .ico-container {
   position: absolute;
   display: block;
   float: none; }
@@ -1807,7 +1807,7 @@ i {
   margin-right: auto;
   float: none; }
 
-.auto-abs-block {
+.auto-abs-block, .site.backlink .bck-axe:after {
   /* hack css margin auto in absolute */
   top: 0;
   left: 0;
@@ -1924,6 +1924,11 @@ a {
 .site-l {
   max-width: 95rem;
   width: 100%; }
+  .site-l .imgUpl {
+    display: none;
+    overflow: hidden;
+    width: 100%;
+    margin-top: 0.5rem; }
 
 .site {
   width: 20%;
@@ -1931,8 +1936,14 @@ a {
   opacity: 0; }
   .site.loadingfade {
     opacity: 0; }
-  .site.backlink {
-    background-color: white; }
+  .site.backlink .bck-axe:after {
+    content: "..";
+    font-size: 5rem;
+    color: white;
+    width: 100%;
+    text-align: center;
+    line-height: 12rem;
+    z-index: -1; }
 
 .loadingfade {
   -moz-animation: loadingfade 1s linear 0s;

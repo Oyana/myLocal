@@ -29,9 +29,16 @@ if ( $devMod )
 require_once("config_smarty.php");
 require_once(CLASS_DIR . "/Controller.php");
 require_once(CLASS_DIR . "/FrontController.php");
-
-if( file_exists(CLASS_DIR . "/" . $configReader->getControllerName() . ".php") )
+$ControllerName = $configReader->getControllerName();
+$reqError = 1;
+if( file_exists( CLASS_DIR . "/" . $ControllerName . ".php" ) )
 {
-	require_once(CLASS_DIR . "/" . $configReader->getControllerName() . ".php");
+	require_once( CLASS_DIR . "/" . $ControllerName . ".php" );
+	$reqError = 0;
+}
+if( file_exists( CLASS_OVERRIDE . "/" . $ControllerName . ".php" ) )
+{
+	require_once( CLASS_OVERRIDE . "/" . $ControllerName . ".php" );
+	$reqError = 0;
 }
 ?>

@@ -16,7 +16,7 @@ gulp.task('default', ['script-concat', 'watch']);
 gulp.task('script-concat', function(){
 
 	var files = [
-		jsPath+'/jquery_2_1_4.js',
+		jsPath+'/jquery_3_2_1.js',
 		jsPath+'/*.js',
 		'!'+jsPath+'/main.min.js'
 	];

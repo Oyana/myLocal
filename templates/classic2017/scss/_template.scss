@@ -17,6 +17,12 @@ a{
 	@extend .auto-block;
 	max-width: $siteW;
 	width: 100%;
+	.imgUpl{
+		display: none;
+		overflow: hidden;
+		width: 100%;
+		margin-top: 0.5rem;
+	}
 }
 
 .site{
@@ -28,7 +34,18 @@ a{
 		opacity: 0;
 	}
 	&.backlink{
-		background-color: white;
+		.bck-axe{
+			&:after{
+				@extend .auto-abs-block;
+				content:"..";
+				font-size: 5rem;
+				color: white;
+				width: 100%;
+				text-align: center;
+				line-height: 12rem;
+				z-index: -1;
+			}
+		}
 	}
 }
 

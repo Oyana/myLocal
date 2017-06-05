@@ -15,6 +15,9 @@
 !/config-user/img/
 /config-user/img/*
 !/config-user/img/readme.md
+!/config-user/Controller/
+/config-user/Controller/*
+!/config-user/Controller/readme.md
 
 # Compiled source #
 ###################
