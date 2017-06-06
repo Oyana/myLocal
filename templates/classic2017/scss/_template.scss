@@ -50,7 +50,7 @@ a{
 }
 
 .loadingfade{
-	@include animation(loadingfade 1s linear 0s);
+	@include animation(loadingfade, 1s);
 }
 
 @include keyframes(loadingfade)
@@ -83,7 +83,7 @@ a{
 
 	&:hover, &:focus{
 		// $hoff, $voff, $blur, $spread, $color, $inset
-		@include single-box-shadow(0, 0, 0.5rem, 0.1rem, $mainColor);
+		box-shadow: 0, 0, 0.5rem, 0.1rem, $mainColor;
 
 		.local-link{
 			margin-top: 0%;
@@ -106,7 +106,7 @@ a{
 		background-color: rgba(255,255,255,0.2);
 
 		// $hoff, $voff, $blur, $spread, $color, $inset
-		@include single-box-shadow(0, 0, 1.5rem, 0, rgba(0,0,0,0.75));
+		box-shadow: 0, 0, 1.5rem, 0, rgba(0,0,0,0.75);
 		@include transition( margin-top 0.5s, background-color 0.5s );
 
 		.ico-container{
@@ -125,11 +125,11 @@ a{
 			background-color: rgba(255,255,255,0.6);
 
 			// $hoff, $voff, $blur, $spread, $color
-			@include single-text-shadow(0.2rem, 0.2rem, 0.2rem, 0.2rem, rgba($mainColor,0.3));
+			-text-shadow: 0.2rem, 0.2rem, 0.2rem, 0.2rem, rgba($mainColor,0.3);
 
 			.ico-container{
 				background-color: white;
-				@include border-radius(50%);
+				border-radius: 50%;
 			}
 		}
 	}
@@ -155,7 +155,7 @@ a{
 		}
 	}
 	&.circle .site-content{
-		@include border-radius(50%);
+		border-radius: 50%;
 	}
 	&.diamond{
 		// @include transform( rotate(-45deg) );
@@ -181,7 +181,7 @@ a{
 	&:hover, &:focus{
 		.ico-container{
 			background-color: white;
-			@include border-radius(50%);
+			border-radius: 50%;
 		}
 	}
 }
@@ -197,12 +197,12 @@ a{
 	background-color: #212121;
 	color: white;
 
-	@include border-radius(0.5rem);
+	border-radius: 0.5rem;
 	@include transition( box-shadow 0.5s );
-	@include single-box-shadow(0, 0, 0.5rem, 0.1rem, $mainColor);
+	box-shadow: 0, 0, 0.5rem, 0.1rem, $mainColor;
 
 	&:hover, &:focus{
-		@include single-box-shadow(0, 0, 0.5rem, 0.1rem, white);
+		box-shadow: 0, 0, 0.5rem, 0.1rem, white;
 	}
 
 	a{
@@ -225,7 +225,7 @@ a{
 			
 			&:hover{
 				background-color: white;
-				@include border-radius(50%);
+				border-radius: 50%;
 			}
 		}
 		.git{

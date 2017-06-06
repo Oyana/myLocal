@@ -1,5 +1,5 @@
 {
-	"name": "my-local",
+	"name": "myLocalClassic2017",
 	"version": "0.4.2",
 	"description": "A responsive dashboard for your localhost. https://golgarud.github.io/myLocal/",
 	"main": "index.js",
@@ -9,14 +9,12 @@
 	},
 	"devDependencies": {
 		"gulp": "^3.9.1",
-		"gulp-compass": "^2.1.0",
+		"gulp-autoprefixer": "^4.0.0",
 		"gulp-concat": "^2.6.0",
 		"gulp-plumber": "^1.1.0",
-		"gulp-rename": "^1.2.2",
 		"gulp-sass": "^3.1.0",
 		"gulp-uglify": "^1.5.3",
-		"node-bourbon": "^4.2.8",
-		"node-sass": "^4.5.3"
+		"node-bourbon": "^4.2.8"
 	},
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1"

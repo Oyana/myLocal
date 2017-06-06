@@ -11,6 +11,7 @@
 /templates/*
 /templates/**
 !/templates/classic2017
+/templates/classic2017/node_modules/
 /config-user/*
 !/config-user/img/
 /config-user/img/*
