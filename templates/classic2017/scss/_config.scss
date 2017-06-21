@@ -32,9 +32,7 @@
 		padding-left: 6%;
 		padding-right: 6%;
 		padding-bottom: 1%;
-
-		// background-color: rgba(255,255,255,0.1);
-		@include border-radius(1rem);
+		border-radius: 1rem;
 
 		textarea{
 			width: 100%;

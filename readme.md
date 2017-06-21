@@ -38,7 +38,7 @@ Required [Compass](http://compass-style.org/) && [Gulp](https://www.npmjs.com/pa
 * Watch both: `gulp watch`
 
 
-## Build status ![v 0.4.2](https://img.shields.io/badge/version-0.4.2_alpha-blue.svg)
+## Build status ![v 0.4.3](https://img.shields.io/badge/version-0.4.2_alpha-blue.svg)
 
 | Linux | Windows | Mac | PHP |
 |:------:|:----------:|:----:|:----:|

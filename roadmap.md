@@ -2,8 +2,13 @@
 ## 0.4.2 *Remove all deprecated tech*
 * [x] Smarty 3.1.29 -> 3.1.31.
 * [x] JQuery 2.1.4 -> 3.2.1.
-* [ ] Compass ;( -> Bourbon + Autoprefixer.
+* [x] Compass ;( -> Bourbon + Autoprefixer.
 * [x] Skin ".." folder;
+
+## 0.4.3 *Remove all bourbon deprecated mixin*
+* [x] transition
+* [x] animation
+* [x] auto-prefixer
 
 ## 0.5.0 *Frendly image*
 * [ ] Image uploader.

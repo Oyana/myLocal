@@ -50,7 +50,7 @@ a{
 }
 
 .loadingfade{
-	@include animation(loadingfade 1s linear 0s);
+	@include animation(loadingfade, 1s);
 }
 
 @include keyframes(loadingfade)
@@ -78,12 +78,11 @@ a{
 
 .site-content{
 	@extend .full-block;
-
-	@include transition( box-shadow 0.5s );
+	transition: box-shadow 0.5s;
 
 	&:hover, &:focus{
 		// $hoff, $voff, $blur, $spread, $color, $inset
-		@include single-box-shadow(0, 0, 0.5rem, 0.1rem, $mainColor);
+		box-shadow: 0, 0, 0.5rem, 0.1rem, $mainColor;
 
 		.local-link{
 			margin-top: 0%;
@@ -106,8 +105,8 @@ a{
 		background-color: rgba(255,255,255,0.2);
 
 		// $hoff, $voff, $blur, $spread, $color, $inset
-		@include single-box-shadow(0, 0, 1.5rem, 0, rgba(0,0,0,0.75));
-		@include transition( margin-top 0.5s, background-color 0.5s );
+		box-shadow: 0, 0, 1.5rem, 0, rgba(0,0,0,0.75);
+		transition: margin-top 0.5s, background-color 0.5s;
 
 		.ico-container{
 			@extend .absolute-block;
@@ -117,7 +116,7 @@ a{
 			right: 0;
 			left: 0;
 			margin: auto;
-			@include transition( background-color 0.5s, border-radius 0.5s );
+			transition: background-color 0.5s, border-radius 0.5s;
 		}
 
 		&:hover, &:focus{
@@ -125,11 +124,11 @@ a{
 			background-color: rgba(255,255,255,0.6);
 
 			// $hoff, $voff, $blur, $spread, $color
-			@include single-text-shadow(0.2rem, 0.2rem, 0.2rem, 0.2rem, rgba($mainColor,0.3));
+			-text-shadow: 0.2rem, 0.2rem, 0.2rem, 0.2rem, rgba($mainColor,0.3);
 
 			.ico-container{
 				background-color: white;
-				@include border-radius(50%);
+				border-radius: 50%;
 			}
 		}
 	}
@@ -155,7 +154,7 @@ a{
 		}
 	}
 	&.circle .site-content{
-		@include border-radius(50%);
+		border-radius: 50%;
 	}
 	&.diamond{
 		// @include transform( rotate(-45deg) );
@@ -175,13 +174,13 @@ a{
 		width: 2.5rem;
 		height: 2.5rem;
 		padding: 1rem;
-		@include transition( background-color 0.5s, border-radius 0.5s );
+		transition: background-color 0.5s, border-radius 0.5s;
 	}
 
 	&:hover, &:focus{
 		.ico-container{
 			background-color: white;
-			@include border-radius(50%);
+			border-radius: 50%;
 		}
 	}
 }
@@ -197,12 +196,12 @@ a{
 	background-color: #212121;
 	color: white;
 
-	@include border-radius(0.5rem);
-	@include transition( box-shadow 0.5s );
-	@include single-box-shadow(0, 0, 0.5rem, 0.1rem, $mainColor);
+	border-radius: 0.5rem;
+	transition: box-shadow 0.5s;
+	box-shadow: 0, 0, 0.5rem, 0.1rem, $mainColor;
 
 	&:hover, &:focus{
-		@include single-box-shadow(0, 0, 0.5rem, 0.1rem, white);
+		box-shadow: 0, 0, 0.5rem, 0.1rem, white;
 	}
 
 	a{
@@ -221,11 +220,11 @@ a{
 			width: 3.5rem;
 			padding: 0.5rem;
 			margin-top: 1rem;
-			@include transition( background-color 0.5s, border-radius 0.5s );
+			transition: background-color 0.5s, border-radius 0.5s;
 			
 			&:hover{
 				background-color: white;
-				@include border-radius(50%);
+				border-radius: 50%;
 			}
 		}
 		.git{

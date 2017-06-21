@@ -14,14 +14,13 @@
 * text=auto
 
 #clean export zip file
+
 .gitattributes export-ignore
 .gitignore export-ignore
-patches.txt export-ignore
-/templates/night2015/config.rb export-ignore
-/templates/night2015/scss export-ignore
-/templates/day2015/config.rb export-ignore
-/templates/day2015/scss export-ignore
-
+roadmap.md export-ignore
+/templates/classic2017/gulpfile.js export-ignore
+/templates/classic2017/package.json export-ignore
+/templates/classic2017/scss export-ignore
 
 # INFO Source code
 
@@ -78,7 +77,7 @@ patches.txt export-ignore
 *.SVGZ binary
 
 # INFO Fonts
-#
+
 *.ttf binary
 *.TTF binary
 *.otf binary
