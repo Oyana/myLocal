@@ -30,7 +30,10 @@ gulp.task('sass', function () {
 			outputStyle: 'compressed',
 			includePaths: require('node-bourbon').includePaths
 		}).on('error', sass.logError))
-		.pipe(autoprefixer())
+		.pipe(autoprefixer({
+			browsers: ['last 5 versions', 'ie >= 10'],
+			cascade: true
+		}))
 		.pipe(gulp.dest(cssPath));
 });
 

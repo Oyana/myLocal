@@ -249,8 +249,8 @@ i{
 }
 
 @mixin animation ( $name, $duration ) {
-	@include animation-name( $name );
-	@include animation-duration( $duration );
+	animation-name: $name;
+	animation-duration: $duration;
 }
 
 @include keyframes( fade ) {
