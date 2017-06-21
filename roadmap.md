@@ -6,8 +6,8 @@
 * [x] Skin ".." folder;
 
 ## 0.4.3 *Remove all bourbon deprecated mixin*
-* [ ] transition
-* [ ] animation
+* [x] transition
+* [x] animation
 * [x] auto-prefixer
 
 ## 0.5.0 *Frendly image*

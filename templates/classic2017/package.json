@@ -1,6 +1,6 @@
 {
 	"name": "myLocalClassic2017",
-	"version": "0.4.2",
+	"version": "0.4.3",
 	"description": "A responsive dashboard for your localhost. https://golgarud.github.io/myLocal/",
 	"main": "index.js",
 	"dependencies": {
