@@ -52,16 +52,3 @@ Required [Compass](http://compass-style.org/) && [Gulp](https://www.npmjs.com/pa
 
 This software is distributed under the [GNU 3.0](./license.md) license.
 
-
-## Contributors
-
-* [Fugu](http://www.fugu.fr/)
-* [Golga](https://github.com/Golgarud)
-* [Jiedara](https://github.com/Jiedara)
-
-
-## Contribut
-* [![fork](https://img.shields.io/badge/Code-Fork-brightgreen.svg)](https://github.com/Golgarud/myLocal/fork)
-* [![download](https://img.shields.io/badge/Code-Download-blue.svg)](https://github.com/Golgarud/myLocal/archive/master.zip)
-* [![Donate with paypal](https://img.shields.io/badge/Donate-PayPal-yellow.svg)](https://www.paypal.me/golga)
-* [![Donate with bitcoin](https://img.shields.io/badge/Donate-ɃitCoin-green.svg)](https://greenaddress.it/fr/pay/GA2f9ovyx43qac7HH3Q9wwTDDJbiNU/#/)
