@@ -17,6 +17,13 @@ body{
 	font-size: $font-size;
 }
 
+@mixin clearfix()
+{
+	clear: both;
+	content: "";
+	display: table;
+}
+
 /* normalize afte mayeur reset sub/su styles
 * based on : https://gist.github.com/unruthless/413930
 */
@@ -42,7 +49,7 @@ i{
 }
 
 .both, .clear{
-	clear: both;
+	@include clearfix();
 }
 
 .block{
