@@ -10,7 +10,7 @@
 		</form>
 		<!-- ajax config end-->
 		<script type="text/javascript" charset="utf-8" async="async">
-			{fetch file=$url.js|cat:"/main.min.js"}
+			{fetch file=$url.jsMin|cat:"/main.min.js"}
 			{if isset($userConfig.js) }
 				{$userConfig.js}
 			{/if}

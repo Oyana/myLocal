@@ -1,4 +1,5 @@
-<form action="" method="post">
+<form method="post" enctype="multipart/form-data">
+	<div class="upload-btn">upload img</div>
 	<ul class="site-l">
 	{foreach from=$datas item=data key=key}
 		{* circle *}

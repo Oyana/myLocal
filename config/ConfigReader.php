@@ -162,6 +162,7 @@ class ConfigReader{
 		define("TEMPLATE_DIR", $this->rp( ROOT_DIR . "/templates/" . $this->templateName) );
 		define("IMG_DIR", TEMPLATE_DIR . "/img");
 		define("JS_DIR", TEMPLATE_DIR . "/js");
+		define("JSMIN_DIR", TEMPLATE_DIR . "/jsMin");
 		define("CSS_DIR", TEMPLATE_DIR . "/css");
 	}
 

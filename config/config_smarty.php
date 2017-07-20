@@ -37,6 +37,7 @@ $configRoot = array(
 	"template"				=>	TEMPLATE_DIR,
 	"img"					=>	IMG_DIR,
 	"js"					=>	JS_DIR,
+	"jsMin"					=>	JSMIN_DIR,
 	"css"					=>	CSS_DIR,
 	"shoot"					=>	SHOOT_DIR
 );
@@ -57,6 +58,7 @@ $configUrl = array(
 	"template"				=>	URL_DOM . TEMPLATE_DIR,
 	"img"					=>	URL_DOM . IMG_DIR,
 	"js"					=>	URL_DOM . JS_DIR,
+	"jsMin"					=>	URL_DOM . JSMIN_DIR,
 	"css"					=>	URL_DOM . CSS_DIR,
 	"shoot"					=>	URL_DOM . SHOOT_DIR
 );

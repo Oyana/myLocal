@@ -71,6 +71,10 @@ $(function(){
 	{
 		loadingIT = loadingIT + 5000;
 		$(this).css({"opacity": 1});
-
+	});	
+	$(".upload-btn").on("click", function(){
+		console.log("ok");
+		$('.imgUpl').css({"opacity": 1, "display": "block"});
+		$(".foot-link").css({"display": "none"});
 	});
 });
