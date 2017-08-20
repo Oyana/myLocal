@@ -14,7 +14,7 @@
 * [x] Image uploader.
 * [ ] Image lasyloader.
 * [x] Custom controller.
-* [ ] Readme enhancment.
+* [x] Readme enhancment.
 
 ## 0.6.0 *Gitlab suport*
 * [ ] GitLab repository detection.

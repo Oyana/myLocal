@@ -1,5 +1,5 @@
 <?php
-$myLocalRelease = '0.4.3';
+$myLocalRelease = '0.5.0';
 $devMod = false;
 $compressedFilesMod = 1;
 $cachesFilesMod = 1;
