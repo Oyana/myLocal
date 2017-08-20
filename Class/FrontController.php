@@ -23,6 +23,7 @@ class FrontController extends Controller
 		$this->configID = sha1( $yourSettingsTxt );
 		$this->cacheID = $this->configID;
 		parent::__construct( $smarty );
+		return true;
 	}
 
 	/**

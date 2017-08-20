@@ -1,6 +1,11 @@
 <?php
 include "config/config_include.php";
 
+if( !empty( $_FILES ) )
+{
+	$IMG = new ImgController( $smarty );
+	$IMG->uplAll();
+}
 //get the good controller
 if( !$reqError )
 {

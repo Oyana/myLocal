@@ -1,4 +1,4 @@
-<form method="post" enctype="multipart/form-data">
+<form method="post" enctype="multipart/form-data" action="">
 	<div class="upload-btn">upload img</div>
 	<ul class="site-l">
 	{foreach from=$datas item=data key=key}
@@ -35,9 +35,10 @@
 				<a class='local-link foot-link always-show' href='{$data.local_link}' title='{$data.name} local'>{$data.name}</a>
 			{/if}
 			{if $data.name != ".."}
-				<input class="imgUpl" type="file" name="imgUpl[{$data.name}]">
+				<input class="imgUpl" type="file" name="imgUpl_{$data.name}">
 			{/if}
 		</li>
 	{/foreach}
 	</ul>
+	<input type="submit" name="submitImg" value="1" />
 </form>
