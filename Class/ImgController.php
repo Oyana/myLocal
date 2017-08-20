@@ -15,7 +15,7 @@ class ImgController extends Controller
 	/**
 	 * __construct ImgController
 	 * @author Golga
-	 * @since 0.4.3
+	 * @since 0.5.0
 	 * @return boolean
 	 */
 	public function __construct( $smarty )
@@ -24,28 +24,51 @@ class ImgController extends Controller
 		return true;
 	}
 
-	public function uplAll()
+	/**
+	 * uplAll
+	 * @author Golga
+	 * @since 0.5.0
+	 * @param  File $file 
+	 * @return boolean
+	 */
+	public function uplAll( $file = null )
 	{
+		if ( $file === null )
+		{
+			$file = $_FILES;
+		}
 		foreach ($_FILES as $key => $file)
 		{
-			if ( $this->isValid( $file ) )
+			$rename = explode( "imgUpl_", $key );
+			if ( empty( $rename[1] ) )
 			{
-				$rename = explode( "imgUpl_", $key );
-				if ( empty( $rename[1] ) )
-				{
-					$this->uplFile( $file, $rename[0] );
-				}
-				else
-				{
-					$this->uplFile( $file, $rename[1] );
-				}
+				$rename = $key;
+			}
+			else
+			{
+				$rename = $rename[1];
+			}
+			if ( $this->isValid( $file ) && $this->cleanDir( $file, $rename ) )
+			{
+				$this->uplFile( $file, $rename );
 			}
 		}
 		return true;
 	}
 
-	public function isValid( $file )
+	/**
+	 * isValid
+	 * @author Golga
+	 * @since 0.5.0
+	 * @param  File $file 
+	 * @return boolean
+	 */
+	public function isValid( $file = null )
 	{
+		if ( $file === null )
+		{
+			$file = $_FILES;
+		}
 		if(
 			!empty( $file['name'] )
 			&& !empty( $file['tmp_name'] )
@@ -69,6 +92,42 @@ class ImgController extends Controller
 		return false;
 	}
 
+	/**
+	 * cleanDir
+	 * @author Golga
+	 * @since 0.5.0
+	 * @param  File $file 
+	 * @param  String $rename 
+	 * @return boolean
+	 */
+	public function cleanDir( $file = null, $rename = null )
+	{
+		if ( $file === null )
+		{
+			$file = $_FILES;
+		}
+		if ( $rename === null )
+		{
+			$rename = $_FILES['name'];
+		}
+		foreach ($this->ext as $key => $ext)
+		{
+			if ( file_exists( $this->target . '/' . $rename .'.'. $ext ) )
+			{
+				unlink( $this->target . '/' . $rename .'.'. $ext );
+			}
+		}
+		return true;
+	}
+
+	/**
+	 * uplFile
+	 * @author Golga
+	 * @since 0.5.0
+	 * @param  File $file 
+	 * @param  String $rename 
+	 * @return boolean
+	 */
 	public function uplFile( $file = null, $rename = null )
 	{
 		if ( $file === null )
@@ -81,7 +140,6 @@ class ImgController extends Controller
 		}
 		if( move_uploaded_file( $file['tmp_name'], $this->target . '/' . $rename .'.'. pathinfo( $file['name'], PATHINFO_EXTENSION ) ) )
 		{
-			echo  $this->target . '/' . $rename .'.'. pathinfo( $file['name'], PATHINFO_EXTENSION );
 			return true;
 		}
 		return false;

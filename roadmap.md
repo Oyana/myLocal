@@ -11,7 +11,7 @@
 * [x] auto-prefixer
 
 ## 0.5.0 *Frendly image*
-* [ ] Image uploader.
+* [x] Image uploader.
 * [ ] Image lasyloader.
 * [x] Custom controller.
 * [ ] Readme enhancment.
