@@ -80,6 +80,7 @@
 				</li>
 			</ul>
 		</li>
+		<li><a class="upload-btn" href="#uploadImg">upload myLocal image</a></li>
 		<li><a href="./#conff">config myLocal</a></li>
 	</ul>
 </nav>

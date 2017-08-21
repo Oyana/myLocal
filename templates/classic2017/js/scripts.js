@@ -73,7 +73,7 @@ $(function(){
 		$(this).css({"opacity": 1});
 	});	
 	$(".upload-btn").on("click", function(){
-		console.log("ok");
+		$('.upload-img').css({"opacity": 1, "display": "block"});
 		$('.imgUpl').css({"opacity": 1, "display": "block"});
 		$(".foot-link").css({"display": "none"});
 	});

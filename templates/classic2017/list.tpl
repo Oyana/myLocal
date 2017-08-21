@@ -1,5 +1,4 @@
 <form method="post" enctype="multipart/form-data" action="">
-	<div class="upload-btn">upload img</div>
 	<ul class="site-l">
 	{foreach from=$datas item=data key=key}
 		{* circle *}
@@ -39,6 +38,8 @@
 			{/if}
 		</li>
 	{/foreach}
+	<li class="upload-img circle ">
+		<input class='local-link' type="submit" name="submitImg" value="Uploader" />
+	</li>
 	</ul>
-	<input type="submit" name="submitImg" value="1" />
 </form>

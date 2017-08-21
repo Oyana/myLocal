@@ -60,6 +60,11 @@ function updateWSize()
 
 		$(this).addClass("loadingfade");
 	});
+	$('.upload-img').each(function(index, el) {
+		$(this).css({
+			"height": site_w
+		});
+	});
 	$('.site-content .local-link').each(function(index, el) {
 		$(this).css({
 			"line-height": lineHeight
