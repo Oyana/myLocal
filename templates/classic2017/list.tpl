@@ -11,7 +11,7 @@
 			<div class='site-content' >
 				<div class='rotation-axe axe'>
 					<div class='radius-axe axe'>
-						<div class='bck-axe axe' style='background-image:url("{$data.img}")'>
+						<div class='bck-axe axe' data-img='{$data.img}'>
 							{if !empty($data.link) and !empty($data.linkType) }
 								<a class='git-link' target='_blank' href='{$data.link}' title='{$data.name} {$data.linkType}'>
 									<div class="ico-container">

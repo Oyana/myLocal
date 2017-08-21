@@ -12,7 +12,7 @@
 
 ## 0.5.0 *Frendly image*
 * [x] Image uploader.
-* [ ] Image lasyloader.
+* [x] Image lasyloader.
 * [x] Custom controller.
 * [x] Readme enhancment.
 

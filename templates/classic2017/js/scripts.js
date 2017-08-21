@@ -2,6 +2,7 @@ $(function(){
 	var resizeTimer;
 	var site_w;
 	var lineHeight;
+	var loadingIT = 0;
 	var url = window.location.href; 
 	var tag = window.location.href.split("#")[1];
 	var mmenu = $('nav#menu').mmenu({
@@ -66,11 +67,12 @@ $(function(){
 		});
 	}
 
-	var loadingIT = 0;
 	$(".loadingfade").each(function()
 	{
 		loadingIT = loadingIT + 5000;
+		var bg = $(this).find('.bck-axe');
 		$(this).css({"opacity": 1});
+		bg.css({"background-image": "url(" + bg.data("img") + ")"});
 	});	
 	$(".upload-btn").on("click", function(){
 		$('.upload-img').css({"opacity": 1, "display": "block"});
