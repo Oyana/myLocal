@@ -5,11 +5,6 @@ $(function(){
 	var loadingIT = 0;
 	var url = window.location.href; 
 	var tag = window.location.href.split("#")[1];
-	// var mmenu = $('nav#menu').mmenu({
-	// 	navbar: {
-	// 			title: "localHost sweet localHost",
-	// 		}
-	// });
 	var refreshW = 2000; // reload .site width 2s after window's reload
 	var config_dev = $("#ajaxConfig input[name=dev]").val();
 	var config_allowUpdate = $("#ajaxConfig input[name=allowUpdate]").val();
@@ -46,7 +41,6 @@ $(function(){
 
 	// on site load
 	updateWSize();
-	// $(mmenu).css({"visibility":"visible"});
 	$("#menu").css({"visibility": "visible"});
 	if ( config_allowUpdate )
 	{
