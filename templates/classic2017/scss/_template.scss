@@ -73,10 +73,6 @@ a{
 	background-color: rgba(0,0,0,0.5);
 } 
 
-#menu{
-	visibility: hidden;
-}
-
 .site-content{
 	@extend .full-block;
 	transition: box-shadow 0.5s;
@@ -159,30 +155,6 @@ a{
 	}
 	&.diamond{
 		// @include transform( rotate(-45deg) );
-	}
-}
-
-#btnMenu{
-	@extend .fixed-block;
-	left: 0;
-	top: 0;
-	width: 3.2rem;
-	padding: 1rem;
-	z-index: 9999;
-
-	.ico-container{
-		box-sizing: content-box;
-		width: 2.5rem;
-		height: 2.5rem;
-		padding: 1rem;
-		transition: background-color 0.5s, border-radius 0.5s;
-	}
-
-	&:hover, &:focus{
-		.ico-container{
-			background-color: white;
-			border-radius: 50%;
-		}
 	}
 }
 

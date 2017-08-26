@@ -6,19 +6,66 @@
 	@extend .absolute-block;
 	left: 0;
 	right: 0;
+	visibility: hidden;
 	background-color: #383636;
 	width: 30rem;
 	min-height: 100vh;
 	height: 100%;
 	transform: translate( -30rem );
 	transition: transform 0.5s;
+	box-shadow: -2rem 0 1rem 2rem rgba(0, 0, 0, 0.4);
 	a{
 		padding-top: 1.3rem;
 		padding-bottom: 1.3rem;
 		font-size: 1.7rem;
 		border-top: 0.1rem solid silver;
+		transition: color 0.5s, background-color 0.5s;
+		&:hover{
+			color: $mainColor;
+			background-color: #262626;
+		}
+	}
+	.title{
+		height: 6rem;
+		line-height: 6rem;
+		font-size: 1.8rem;
+		color: $mainColor;
+		background-color: #262626;
+		text-align: center;
+		img{
+			@extend .absolute-block;
+			top: 1.5rem;
+			left: 0.5rem;
+			width: 2.5rem;
+			height: 2.5rem;
+		}
 	}
 }
+
+#btnMenu{
+	@extend .fixed-block;
+	left: 0;
+	top: 0;
+	width: 3.2rem;
+	padding: 1rem;
+	z-index: 9999;
+
+	.ico-container{
+		box-sizing: content-box;
+		width: 2.5rem;
+		height: 2.5rem;
+		padding: 1rem;
+		transition: background-color 0.5s, border-radius 0.5s;
+	}
+
+	&:hover, &:focus{
+		.ico-container{
+			background-color: white;
+			border-radius: 50%;
+		}
+	}
+}
+
 
 .openMenu{
 	#menu{
