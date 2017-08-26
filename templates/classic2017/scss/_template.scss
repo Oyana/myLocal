@@ -2,6 +2,7 @@ body{
 	background-color: #1C1C1C;
 	background-image: url( $main-bck );
 	background-repeat: repeat;
+	font-family: 'ubuntu_monoregular';
 }
 
 a{
@@ -25,7 +26,7 @@ a{
 	}
 }
 
-.site{
+.site, .upload-img{
 	@extend .left-block;
 	width: 20%;
 	border: 2rem solid transparent;
@@ -71,10 +72,6 @@ a{
 	@extend .full-bg;
 	background-color: rgba(0,0,0,0.5);
 } 
-
-#menu{
-	visibility: hidden;
-}
 
 .site-content{
 	@extend .full-block;
@@ -161,30 +158,6 @@ a{
 	}
 }
 
-#btnMenu{
-	@extend .fixed-block;
-	left: 0;
-	top: 0;
-	width: 3.2rem;
-	padding: 1rem;
-	z-index: 9999;
-
-	.ico-container{
-		box-sizing: content-box;
-		width: 2.5rem;
-		height: 2.5rem;
-		padding: 1rem;
-		transition: background-color 0.5s, border-radius 0.5s;
-	}
-
-	&:hover, &:focus{
-		.ico-container{
-			background-color: white;
-			border-radius: 50%;
-		}
-	}
-}
-
 .maj-info{
 	@extend .fixed-block;
 	bottom: 2rem;
@@ -238,5 +211,19 @@ a{
 		top: 0;
 		text-align: right;
 		padding: 0.5rem;
+	}
+}
+
+.upload-img{
+	.local-link{
+		width: 100%;
+		height: 100%;
+		border-radius: 50%;
+		border: 0 none;
+		font-size: 2.5rem;
+		color: silver;
+		&:hover{
+			color: black;
+		}
 	}
 }

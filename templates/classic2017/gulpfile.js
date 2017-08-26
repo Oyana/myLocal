@@ -1,6 +1,6 @@
 var oyana = require('gulp-oyana');
 var options = {
-	"jsMinPath" : "./js",
+	"jsMinPath" : "./jsMin",
 	"jsPath" : "./js",
 	"cssPath" : "./css",
 	"scssPath" : "./scss",

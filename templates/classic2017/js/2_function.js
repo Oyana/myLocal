@@ -19,34 +19,6 @@ function cleanTag( url )
 	window.history.pushState("","", url.split("#")[0]);
 }
 
-function closeMM()
-{
-	$(".mm-opened").each(function(index, el)
-	{
-		$(this).removeClass('mm-opened');
-	});
-	$(".mm-opening").each(function(index, el)
-	{
-		$(this).removeClass('mm-opening');
-	});
-	$(".mm-background").each(function(index, el)
-	{
-		$(this).removeClass('mm-background');
-	});
-	$(".mm-current").each(function(index, el)
-	{
-		$(this).removeClass('mm-current');
-	});
-	$(".mm-opened").each(function(index, el)
-	{
-		$(this).removeClass('mm-opened');
-	});
-	$(".mm-slideOut").each(function(index, el)
-	{
-		$(this).removeClass('mm-slideOut');
-	});
-}
-
 function updateWSize()
 {
 	site_w = $(".site").css("width");
@@ -59,6 +31,11 @@ function updateWSize()
 		});
 
 		$(this).addClass("loadingfade");
+	});
+	$('.upload-img').each(function(index, el) {
+		$(this).css({
+			"height": site_w
+		});
 	});
 	$('.site-content .local-link').each(function(index, el) {
 		$(this).css({
@@ -92,7 +69,6 @@ function hashchangeFunction( url )
 	switch(  tag )
 	{
 		case "conff":
-			closeMM();
 			displayConff();
 		break;
 		case "closeConff":
@@ -101,8 +77,16 @@ function hashchangeFunction( url )
 		case "closeMaj":
 			$(".maj-info").slideToggle(500);
 		break;
+		case "menu":
+			displayMenu();
+		break;
 		default:
 			console.log( "unknow " + tag + " hashange on script.js");
 		break;
 	}
+}
+
+function displayMenu()
+{
+	$("body").toggleClass("openMenu");
 }

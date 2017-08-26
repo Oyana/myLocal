@@ -1,7 +1,8 @@
-# ![](./templates/night2015/img/favicon/favicon-32x32.png) MyLocal 
+# ![](./templates/classic2017/img/favicon/favicon-32x32.png) MyLocal 
 >    MyLocal is a responsive dashboard for your web development environment.  
 >    Try it if you are bored of your localhost home page!  
 
+![](./templates/classic2017/img/screen.png)
 ## Why I should use this crap?
 1. Include a directory listing *(like every dashboard)*
 2. Automatic detection of GitHub repository link
@@ -10,8 +11,9 @@
 5. No database requirement
 6. Work with [a lot](#build-status-) of OS, development environment and PHP version. 
 7. Custom CSS & JS area
-8. it's easy to make your own myLocal template.
-9. Is made with  :green_heart: && :coffee: under a [public license](./license.md)
+8. It's easy to make your own myLocal template.
+9. New  feature [in comming!](./roadmap.md)
+10. Is made with  :green_heart: && :coffee: under a [public license](./license.md)
 
 ## Requirements
 
@@ -23,11 +25,15 @@
 Clone or paste myLocal folder in your web development environment (xampp, wamp or mamp) root folder (htdocs or www).
 
    **How to load it in my localhost homepage?**   
-   If you want to load myLocal dashboard instead of your classic environment's dashboard you can paste `myLocal/include.php` in your root folder and renamed it to `index.php`.   
+   If you want to load myLocal dashboard instead of your classic environment's 
+   dashboard you can paste `myLocal/include.php` in your root folder and renamed it to `index.php`.
 
-   **How to rename myLocal main folder?**   
-   If you want to rename myLocal main folder you need to go in `myLocal/config/defines.php`, update line 7 `$mainFolderName = "YourFolderName";`. If you load it in your localhost homepage you also need to change path in your `/index.php` line 2.    
+   **How to load it in a sub-folder?**   
+   In your sub-folder create a `index.php` file with a myLocal include inside    
 
+	<?php
+		include "YourPath/myLocal/index.php";
+	?>
 
 ## For Developers
 
@@ -35,7 +41,7 @@ Required [Gulp](https://www.npmjs.com/package/gulp-install) for any update.
 MyLocal use [gulp-oyana](https://github.com/Oyana/gulp-oyana) for asset compiling.
 
 
-## Build status ![v 0.4.3](https://img.shields.io/badge/version-0.4.2_alpha-blue.svg)
+## Build status ![v 0.5.0](https://img.shields.io/badge/version-0.4.2_alpha-blue.svg)
 
 | Linux | Windows | Mac | PHP |
 |:------:|:----------:|:----:|:----:|

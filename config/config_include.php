@@ -29,6 +29,7 @@ if ( $devMod )
 require_once("config_smarty.php");
 require_once(CLASS_DIR . "/Controller.php");
 require_once(CLASS_DIR . "/FrontController.php");
+require_once(CLASS_DIR . "/ImgController.php");
 $ControllerName = $configReader->getControllerName();
 $reqError = 1;
 if( file_exists( CLASS_DIR . "/" . $ControllerName . ".php" ) )

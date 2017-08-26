@@ -1,4 +1,4 @@
-<form action="" method="post">
+<form method="post" enctype="multipart/form-data" action="">
 	<ul class="site-l">
 	{foreach from=$datas item=data key=key}
 		{* circle *}
@@ -11,7 +11,7 @@
 			<div class='site-content' >
 				<div class='rotation-axe axe'>
 					<div class='radius-axe axe'>
-						<div class='bck-axe axe' style='background-image:url("{$data.img}")'>
+						<div class='bck-axe axe' data-img='{$data.img}'>
 							{if !empty($data.link) and !empty($data.linkType) }
 								<a class='git-link' target='_blank' href='{$data.link}' title='{$data.name} {$data.linkType}'>
 									<div class="ico-container">
@@ -34,9 +34,12 @@
 				<a class='local-link foot-link always-show' href='{$data.local_link}' title='{$data.name} local'>{$data.name}</a>
 			{/if}
 			{if $data.name != ".."}
-				<input class="imgUpl" type="file" name="imgUpl[{$data.name}]">
+				<input class="imgUpl" type="file" name="imgUpl_{$data.name}">
 			{/if}
 		</li>
 	{/foreach}
+	<li class="upload-img circle ">
+		<input class='local-link' type="submit" name="submitImg" value="Uploader" />
+	</li>
 	</ul>
 </form>
