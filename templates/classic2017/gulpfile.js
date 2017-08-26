@@ -4,7 +4,6 @@ var options = {
 	"jsPath" : "./js",
 	"cssPath" : "./css",
 	"scssPath" : "./scss",
-	"proxyPath" : "127.0.0.1",
 	"outputStyle" : "compressed"
 }
 oyana( options );

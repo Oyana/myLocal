@@ -1,0 +1,16 @@
+#menu{
+	@extend .absolute-block;
+	left: 0;
+	right: 0;
+	background-color: #383636;
+	width: 30rem;
+	min-height: 100vh;
+	height: 100%;
+	transform: translate(-30rem);
+	a{
+		padding-top: 1.3rem;
+		padding-bottom: 1.3rem;
+		font-size: 1.7rem;
+		border-top: 0.1rem solid silver;
+	}
+}

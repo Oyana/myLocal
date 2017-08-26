@@ -106,8 +106,24 @@ function hashchangeFunction( url )
 		case "closeMaj":
 			$(".maj-info").slideToggle(500);
 		break;
+		case "menu":
+			displayMenu();
+		break;
 		default:
 			console.log( "unknow " + tag + " hashange on script.js");
 		break;
 	}
+}
+
+function displayMenu()
+{
+	var menu = $("#menu");
+	var main = $("#main");
+	var w = menu.width() / 10;
+	menu.css({"transform": "translate(0)"});
+	main.css({"transform": "translate(" + w + "rem)"});
+	main.on("click", function(){
+		menu.css({"transform": "translate(-" + w + "rem)"});
+		main.css({"transform": "translate(0)"});
+	});
 }
