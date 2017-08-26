@@ -19,34 +19,6 @@ function cleanTag( url )
 	window.history.pushState("","", url.split("#")[0]);
 }
 
-function closeMM()
-{
-	$(".mm-opened").each(function(index, el)
-	{
-		$(this).removeClass('mm-opened');
-	});
-	$(".mm-opening").each(function(index, el)
-	{
-		$(this).removeClass('mm-opening');
-	});
-	$(".mm-background").each(function(index, el)
-	{
-		$(this).removeClass('mm-background');
-	});
-	$(".mm-current").each(function(index, el)
-	{
-		$(this).removeClass('mm-current');
-	});
-	$(".mm-opened").each(function(index, el)
-	{
-		$(this).removeClass('mm-opened');
-	});
-	$(".mm-slideOut").each(function(index, el)
-	{
-		$(this).removeClass('mm-slideOut');
-	});
-}
-
 function updateWSize()
 {
 	site_w = $(".site").css("width");
@@ -97,7 +69,6 @@ function hashchangeFunction( url )
 	switch(  tag )
 	{
 		case "conff":
-			closeMM();
 			displayConff();
 		break;
 		case "closeConff":
@@ -117,13 +88,5 @@ function hashchangeFunction( url )
 
 function displayMenu()
 {
-	var menu = $("#menu");
-	var main = $("#main");
-	var w = menu.width() / 10;
-	menu.css({"transform": "translate(0)"});
-	main.css({"transform": "translate(" + w + "rem)"});
-	main.on("click", function(){
-		menu.css({"transform": "translate(-" + w + "rem)"});
-		main.css({"transform": "translate(0)"});
-	});
+	$("body").toggleClass("openMenu");
 }

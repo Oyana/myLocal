@@ -1,3 +1,7 @@
+#main{
+	transition: transform 0.5s;
+}
+
 #menu{
 	@extend .absolute-block;
 	left: 0;
@@ -6,11 +10,21 @@
 	width: 30rem;
 	min-height: 100vh;
 	height: 100%;
-	transform: translate(-30rem);
+	transform: translate( -30rem );
+	transition: transform 0.5s;
 	a{
 		padding-top: 1.3rem;
 		padding-bottom: 1.3rem;
 		font-size: 1.7rem;
 		border-top: 0.1rem solid silver;
+	}
+}
+
+.openMenu{
+	#menu{
+		transform: translate( 0 );
+	}
+	#main{
+		transform: translate( 30rem );
 	}
 }
