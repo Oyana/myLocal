@@ -1,7 +1,8 @@
-# ![](./templates/night2015/img/favicon/favicon-32x32.png) MyLocal 
+# ![](./templates/classic2017/img/favicon/favicon-32x32.png) MyLocal 
 >    MyLocal is a responsive dashboard for your web development environment.  
 >    Try it if you are bored of your localhost home page!  
 
+![](./templates/classic2017/img/screen.png)
 ## Why I should use this crap?
 1. Include a directory listing *(like every dashboard)*
 2. Automatic detection of GitHub repository link
@@ -10,45 +11,48 @@
 5. No database requirement
 6. Work with [a lot](#build-status-) of OS, development environment and PHP version. 
 7. Custom CSS & JS area
-8. it's easy to make your own myLocal template.
-9. Is made with  :green_heart: && :coffee: under a [public license](./license.md)
+8. It's easy to make your own myLocal template.
+9. New  feature [in comming!](./roadmap.md)
+10. Is made with  :green_heart: && :coffee: under a [public license](./license.md)
 
 ## Requirements
 
-* PHP 5 -> 7
+* PHP 5.0+ (php7.1 ready)
 * [xampp](https://www.apachefriends.org/index.html) || [wamp](http://www.wampserver.com/en/) || [mamp](https://www.mamp.info/en/)
 
-## How to instal?  *(auto installer coming soon!)*
+## How to install?
 
-Clone or paste myLocal foler in your web development environment (xampp, wamp or mamp) root folder (htdocs or www).
+Clone or paste myLocal folder in your web development environment (xampp, wamp or mamp) root folder (htdocs or www).
 
    **How to load it in my localhost homepage?**   
-   If you want to load myLocal dashboard instead of your classic environment's dashboard you can pasted `myLocal/include.php` in your root folder and renamed it to `index.php`.   
+   If you want to load myLocal dashboard instead of your classic environment's 
+   dashboard you can paste `myLocal/include.php` in your root folder and renamed it to `index.php`.
 
-   **How to rename myLocal main folder?**   
-   If you want to rename myLocal main folder you need to go in `myLocal/config/defines.php`, update row 7 `define("MAIN_FOLDER_NAME", "yourFolderName");`. If you load it in your localhost homepage you also need to change path in your `/index.php` row 2.    
+   **How to load it in a sub-folder?**   
+   In your sub-folder create a `index.php` file with a myLocal include inside    
+
+	<?php
+		include "YourPath/myLocal/index.php";
+	?>
+
+## For Developers
+
+Required [Gulp](https://www.npmjs.com/package/gulp-install) for any update.
+MyLocal use [gulp-oyana](https://github.com/Oyana/gulp-oyana) for asset compiling.
 
 
-## Contributing Developers
-
-Required [Compass](http://compass-style.org/) && [Gulp](https://www.npmjs.com/package/gulp-install) for any template update.
-
-* Build JS: `gulp script-concat`
-* Buils CSS: `gulp compass`
-* Watch both: `gulp watch`
-
-
-## Build status ![v 0.3.2](https://img.shields.io/badge/version-0.3.2_alpha-blue.svg)
+## Build status ![v 0.5.0](https://img.shields.io/badge/version-0.4.2_alpha-blue.svg)
 
 | Linux | Windows | Mac | PHP |
 |:------:|:----------:|:----:|:----:|
 | ![xampp ok](https://img.shields.io/badge/XAMPP_Build-passing-brightgreen.svg) | ![xampp ok](https://img.shields.io/badge/XAMPP_Build-passing-brightgreen.svg) |  ![xampp ok](https://img.shields.io/badge/XAMPP_Build-passing-brightgreen.svg) | ![PHP 5.3 ok](https://img.shields.io/badge/5.3-passing-brightgreen.svg) |
-| | ![wampp ok](https://img.shields.io/badge/WAMPP_Build-passing-brightgreen.svg) | ![mampp ok](https://img.shields.io/badge/MAMPP_Build-passing-brightgreen.svg) | ![PHP 5.5 ok](https://img.shields.io/badge/5.5-passing-brightgreen.svg) |
+| | ![wampp ok](https://img.shields.io/badge/WAMPP_Build-passing-brightgreen.svg) | ![mampp ok](https://img.shields.io/badge/MAMPP_Build-passing-brightgreen.svg) | ![PHP 5.4 ok](https://img.shields.io/badge/5.4-passing-brightgreen.svg) |
+|| | | ![PHP 5.5 ok](https://img.shields.io/badge/5.5-passing-brightgreen.svg) |
 || | | ![PHP 5.6 ok](https://img.shields.io/badge/5.6-passing-brightgreen.svg) |
-|| | | ![PHP 7.0 ok](https://img.shields.io/badge/7.0-passing-brightgreen.svg) |
-
+|| | | ![PHP 6.0 unknow](https://img.shields.io/badge/6.0-unkow-silver.svg) |
+|| | | ![PHP 7.0 ok](https://img.shields.io/badge/7.0-passing-brightgreen.svg) 
+|| | | ![PHP 7.1 ok](https://img.shields.io/badge/7.1-passing-brightgreen.svg) |
 
 ## License
 
 This software is distributed under the [GNU 3.0](./license.md) license.
-
